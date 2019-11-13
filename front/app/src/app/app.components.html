@@ -1,0 +1,18 @@
+<h2>Login</h2>
+
+<div>
+  <label>login:
+    <input #login />
+  </label>
+  <label>senha:
+    <input #senha>
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="entrar(login.value, senha.value)">
+    entrar
+  </button>
+  
+
+
+</div>
+
