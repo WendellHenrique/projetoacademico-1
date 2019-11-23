@@ -2,17 +2,32 @@
 
 <div>
   <label>login:
-    <input #login />
+    <input [(ngModel)]="usuariodados.login" placeholder="login"/>
   </label>
   <label>senha:
-    <input #senha>
+    <input [(ngModel)]="usuariodados.senha" placeholder="senha"/>
   </label>
+  <label >test:
+    <input type="checkbox" [(ngModel)]=usuariodados.disciplinas.check>
+  </label>
+  <label >test2:
+    <input type="checkbox" [(ngModel)]=usuariodados.disciplinas.check2>
+  </label>
+  <br>
+  <label>selectTest:
+    <select [(ngModel)]="usuariodados.selectTest">
+      <option *ngFor="let item of listaItens" [value]="item">{{item}}</option>
+    </select>
+  </label>
+  <label>
+    <input type="date" [(ngModel)]="usuariodados.dataVinculo">
+  </label>
+
   <!-- (click) passes input value to add() and then clears the input -->
-  <button (click)="entrar(login.value, senha.value)">
+  <button (click)="entrar()">
     entrar
   </button>
-  
+
 
 
 </div>
-

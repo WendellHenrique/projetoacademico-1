@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { LoginService } from './login.service';
-import { Login } from './login.interface';
+import { Login } from './login.class';
 
 @Component({
   selector: 'app-root',
@@ -9,15 +9,21 @@ import { Login } from './login.interface';
 })
 export class AppComponent {
   title = 'app';
-  usuariotest: Login
+
+  listaItens = [
+    'paraiba',
+    'portugal',
+    'ola'
+  ]
+
+  @Input() usuariodados: Login = {login: '', senha: '', disciplinas : {check: false, check2: false}, selectTest: null, dataVinculo: null }
 
   constructor(public loginServise: LoginService) {}
 
-  entrar(login: string, senha: string): void {
-    this.usuariotest.login = login
-    this.usuariotest.senha = senha
-    console.log(this.usuariotest)
-    this.loginServise.loginPost(this.usuariotest)
+  entrar(): void {
+    this.loginServise.loginPost(this.usuariodados).subscribe((result) => {
+      console.log(result)
+    })
   }
 
 }
