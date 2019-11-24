@@ -1,0 +1,76 @@
+<div class="container">
+  <nav class="navbar navbar-expand-lg	navbar-dark" style="background: #7A8B8B">
+      <a class="navbar-brand" href="#">Acadêmico</a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSite">
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                  <a class="nav-link" [routerLink]="['/aluno']" style="color: aliceblue;">Disciplinas</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" [routerLink]="['/aluno/historico']" style="color: aliceblue;">Histórico</a>
+              </li>
+              <div class="btn-group">
+                  <button class="btn btn-sm" type="button" style="background: #7A8B8B" id="nome-usuario">
+                      John Emerson
+                  </button>
+                  <button type="button" class="btn btn-sm dropdown-toggle dropdown-toggle-split"
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                      style="background: #7A8B8B; color: aliceblue">
+                      <span class="sr-only">Dropdown</span>
+                  </button>
+                  <div class="dropdown-menu">
+                      <a class="dropdown-item" href="#">Perfil</a>
+                      <a class="dropdown-item" href="#">Sair</a>
+                  </div>
+              </div>
+          </ul>
+      </div>
+  </nav>
+
+  <table class="table table-hover" id="tabela-historico">
+      <thead>
+          <tr>
+              <th scope="col">Disciplina</th>
+              <th scope="col">Situação</th>
+              <th scope="col">Período</th>
+              <th scope="col">Nota</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>Disciplina 1</td>
+              <td>Reprovado</td>
+              <td>1º Período</td>
+              <td>2.5</td>
+          </tr>
+          <tr>
+              <td>disciplina 2 cc</td>
+              <td>Aprovado</td>
+              <td>1º Período</td>
+              <td>7.0</td>
+          </tr>
+          <tr>
+              <td> disciplina 3 cc </td>
+              <td>Aprovado</td>
+              <td>1º Período</td>
+              <td>7.0</td>
+          </tr>
+          <tr>
+              <td> disciplina 4 cc </td>
+              <td>Aprovado</td>
+              <td>1º Período</td>
+              <td>7.0</td>
+          </tr>
+          <tr>
+              <td> disciplina 5 cc </td>
+              <td>Aprovado</td>
+              <td>1º Período</td>
+              <td>7.0</td>
+          </tr>
+      </tbody>
+  </table>
+</div>

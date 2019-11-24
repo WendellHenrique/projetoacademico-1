@@ -1,0 +1,73 @@
+<div class="container">
+  <nav class="navbar navbar-expand-lg	navbar-dark " id="praBaixo" style="background: #7A8B8B">
+      <a class="navbar-brand" href="listagem.html">Acadêmico</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSite">
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                  <a class="nav-link" [routerLink]="['/professor']" routerLinkActive="router-link-active"  style="color: aliceblue;">Início</a>
+              </li>
+              <div class="btn-group">
+                  <button class="btn  btn-sm" type="button" style="background: #7A8B8B; color: aliceblue;">
+                      John Emerson<br>
+                      <h6 id="status-usuario">Professor</h6>
+                  </button>
+                  <button type="button" class="btn btn-sm  dropdown-toggle dropdown-toggle-split"
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                      style="background: #7A8B8B; color: aliceblue;">
+                      <span class="sr-only">Dropdown</span>
+                  </button>
+                  <div class="dropdown-menu">
+                      <a class="dropdown-item" href="#">Perfil</a>
+                      <a class="dropdown-item" href="#">Sair</a>
+                  </div>
+              </div>
+          </ul>
+      </div>
+  </nav>
+
+  <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+              aria-controls="nav-home" aria-selected="true">Banco de dados - 6º Período</a>
+      </div>
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+          <table class="table table-hover" id="tabela-Turma-CC1901">
+              <thead>
+                  <tr>
+                      <th scope="col">Matrícula</th>
+                      <th scope="col">Aluno</th>
+                      <th scope="col">Nota 1</th>
+                      <th scope="col">Nota 2</th>
+                      <th scope="col">Final</th>
+                      <th scope="col">Media</th>
+                      <th scope="col">Situação</th>
+                      <th scope="col">Notas</th>
+                      <th scope="col">Histórico</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <th scope="row">1710019185</th>
+                      <td>John Emerson F. R. Filho</td>
+                      <td>10</td>
+                      <td>10</td>
+                      <td>10</td>
+                      <td>10</td>
+                      <td>reAprovado</td>
+                      <td><a [routerLink]="['/professor/estudantesPorCurso/notas']" >Alterar</a></td>
+                      <td><a [routerLink]="['/professor/estudantesPorCurso/historico']" >Acessar Histórico</a></td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+  <div class="botaoVoltar"><a [routerLink]="['/professor']" ><button type="button" class="btn btn-dark"> <i
+                  class="fas fa-angle-left"></i> Voltar</button></a>
+  </div>
+</div>

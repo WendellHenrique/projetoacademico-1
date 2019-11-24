@@ -1,0 +1,61 @@
+<div class="container">
+  <nav class="navbar navbar-expand-lg	navbar-dark " style="background: #7A8B8B">
+      <a class="navbar-brand" href="listagem.html">Acadêmico</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSite">
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                  <a class="nav-link" [routerLink]="['/professor']" routerLinkActive="router-link-active"  style="color: aliceblue;">Inicio</a>
+              </li>
+              <div class="btn-group">
+                  <button class="btn  btn-sm" type="button" style="background: #7A8B8B; color: aliceblue;">
+                      John Emerson<br>
+                      <h6 id="status-usuario">Professor</h6>
+                  </button>
+                  <button type="button" class="btn btn-sm  dropdown-toggle dropdown-toggle-split"
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                      style="background: #7A8B8B; color: aliceblue;">
+                      <span class="sr-only">Dropdown</span>
+                  </button>
+                  <div class="dropdown-menu">
+                      <a class="dropdown-item" href="#">Perfil</a>
+                      <a class="dropdown-item" href="#">Sair</a>
+                  </div>
+              </div>
+          </ul>
+      </div>
+  </nav>
+  <br>
+  <br>
+  <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+              aria-controls="nav-home" aria-selected="true">Disciplinas lecionadas </a>
+      </div>
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+          <table class="table table-hover" id="tabela-Listagem-Aluno">
+              <thead>
+                  <tr>
+                      <th scope="col">Turma</th>
+                      <th scope="col">Disciplina</th>
+                      <th scope="col">Período</th>
+                      <th scope="col">Acessar Disciplina</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td>2019.2</td>
+                      <td>Banco de dados</td>
+                      <td>6º Período</td>
+                      <td><a [routerLink]="['/professor/estudantesPorCurso']">Acesse </a> </td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>

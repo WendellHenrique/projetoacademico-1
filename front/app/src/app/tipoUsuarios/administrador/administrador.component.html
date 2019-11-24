@@ -1,0 +1,166 @@
+<div class="container">
+  <nav class="navbar navbar-expand-lg	navbar-dark " style="background: #7A8B8B">
+      <a class="navbar-brand" href="listagem.html">Acadêmico</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSite">
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                  <a class="nav-link" [routerLink]="['/administrador']" routerLinkActive="router-link-active"  style="color: aliceblue;">Início</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/administrador/cadastramento']" style="color: aliceblue;">Cadastrar</a>
+            </li>
+              <div class="btn-group">
+                  <button class="btn  btn-sm" type="button" style="background: #7A8B8B; color: aliceblue;">
+                      John Emerson<br>
+                      <h6 id="status-usuario"> Administrador</h6>
+                  </button>
+                  <button type="button" class="btn btn-sm  dropdown-toggle dropdown-toggle-split"
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                      style="background: #7A8B8B; color: aliceblue;">
+                      <span class="sr-only">Dropdown</span>
+                  </button>
+                  <div class="dropdown-menu">
+                      <a class="dropdown-item" href="#">Perfil</a>
+                      <a class="dropdown-item" href="#l">Sair</a>
+                  </div>
+              </div>
+          </ul>
+      </div>
+  </nav>
+  <br>
+  <br>
+  <nav>
+      <div id="navTroca" class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+              aria-controls="nav-home" aria-selected="true">Alunos</a>
+
+          <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
+              aria-controls="nav-profile" aria-selected="false">Professores</a>
+
+          <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
+              aria-controls="nav-contact" aria-selected="false">Cursos</a>
+
+          <a class="nav-item nav-link" id="nav-disciplina-tab" data-toggle="tab" href="#nav-disciplina" role="tab"
+              aria-controls="nav-disciplina" aria-selected="false">Disciplinas</a>
+      </div>
+  </nav>
+
+  <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+          <label>Pesquisar por matricula: </label>
+          <div class="d-flex justify-content-start" id="campoPesquisa">
+              <input class="form-control mr-sm-2" id="caixaPesquisa" type="search" placeholder="Pesquisar"
+                  aria-label="Pesquisar">
+              <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Pesquisar </button>
+          </div>
+          <table class="table table-hover" id="tabela-Listagem-Aluno">
+              <thead>
+                  <tr>
+                      <th scope="col">Matrícula</th>
+                      <th scope="col">Aluno</th>
+                      <th scope="col">Situação</th>
+                      <th scope="col">Período</th>
+                      <th scope="col">Alterar</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td> 1710019185</td>
+                      <td>John Emerson F. R. Filho</td>
+                      <td>Matriculado</td>
+                      <td>6º Período</td>
+                      <td><a [routerLink]="['/administrador/alterar']" (click)="alterarTravar('aluno')">Alterar</a></td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+      <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+          <label>Pesquisar por matricula: </label>
+          <div class="d-flex justify-content-start" id="campoPesquisa">
+              <input class="form-control mr-sm-2" id="caixaPesquisa" type="search" placeholder="Pesquisar"
+                  aria-label="Pesquisar">
+              <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Pesquisar </button>
+          </div>
+          <table class="table table-hover" id="tabela-Listagem-Professor">
+              <thead>
+                  <tr>
+                      <th scope="col">Matrícula</th>
+                      <th scope="col">Professor</th>
+                      <th scope="col">Situação</th>
+                      <th scope="col">Área de atuação</th>
+                      <th scope="col">Titulação</th>
+                      <th scope="col">Alterar</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td>171005</td>
+                      <td>John Emerson F. R. Filho</td>
+                      <td>Contratado</td>
+                      <td>TI</td>
+                      <td>Mestre</td>
+                      <td><a [routerLink]="['/administrador/alterar']" (click)="alterarTravar('professor')">Alterar</a></td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+      <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+          <label>Pesquisar por nome do curso: </label>
+          <div class="d-flex justify-content-start" id="campoPesquisa">
+              <input class="form-control mr-sm-2" id="caixaPesquisa" type="search" placeholder="Pesquisar"
+                  aria-label="Pesquisar">
+              <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Pesquisar </button>
+          </div>
+          <table class="table table-hover" id="tabela-Listagem-Curso">
+              <thead>
+                  <tr>
+                      <th scope="col">Nome do curso</th>
+                      <th scope="col">Situação</th>
+                      <th scope="col">Área de atuação</th>
+                      <th scope="col">Alterar</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+
+                      <td>Ciência da computação</td>
+                      <td>Ativo</td>
+                      <td>TI</td>
+                      <td><a [routerLink]="['/administrador/alterar']" (click)="alterarTravar('curso')">Alterar</a></td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+      <div class="tab-pane fade" id="nav-disciplina" role="tabpanel" aria-labelledby="nav-disciplina-tab">
+          <label>Pesquisar por nome da disciplina: </label>
+          <div class="d-flex justify-content-start" id="campoPesquisa">
+              <input class="form-control mr-sm-2" id="caixaPesquisa" type="search" placeholder="Pesquisar"
+                  aria-label="Pesquisar">
+              <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Pesquisar </button>
+          </div>
+          <table class="table table-hover" id="tabela-Listagem-Disciplina">
+              <thead>
+                  <tr>
+                      <th scope="col">Nome da Disciplina</th>
+                      <th scope="col">Área de atuação</th>
+                      <th scope="col">Turmas</th>
+                      <th scope="col">Alterar</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+
+                      <td>Estatística</td>
+                      <td>TI / Saúde / Econômico </td>
+                      <td>04</td>
+                      <td><a [routerLink]="['/administrador/alterar']" (click)="alterarTravar('disciplina')">Alterar</a></td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>

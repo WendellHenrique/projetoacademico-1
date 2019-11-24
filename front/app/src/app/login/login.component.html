@@ -1,0 +1,19 @@
+<div class="login-form">
+  <h1>Login</h1>
+
+  <div class="txtb" >
+    <input type="text" [(ngModel)]="usuariodados.login">
+    <span data-placeholder="matricula"></span>
+  </div>
+
+  <div class="txtb">
+    <input [(ngModel)]="usuariodados.senha" type="password">
+    <span data-placeholder="Password"></span>
+  </div>
+  <button type="submit" class="logbtn" (click)="entrar()">
+      Login
+  </button>
+
+
+
+</div>

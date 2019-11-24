@@ -1,29 +1,15 @@
-import { Component, Input, Output } from '@angular/core';
-import { LoginService } from './login.service';
-import { Login } from './login.class';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.components.html',
+  templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  // validacoes para login
+  private isloggin = false
+  private istela = true
 
-  listaItens = [
-    'paraiba',
-    'portugal',
-    'ola'
-  ]
-
-  @Input() usuariodados: Login = {login: '', senha: '', disciplinas : {check: false, check2: false}, selectTest: null, dataVinculo: null }
-
-  constructor(public loginServise: LoginService) {}
-
-  entrar(): void {
-    this.loginServise.loginPost(this.usuariodados).subscribe((result) => {
-      console.log(result)
-    })
-  }
+  constructor() { }
 
 }

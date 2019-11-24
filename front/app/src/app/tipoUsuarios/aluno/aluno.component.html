@@ -1,0 +1,103 @@
+<div class="container">
+  <nav class="navbar navbar-expand-lg	navbar-dark" style="background: #7A8B8B">
+      <a class="navbar-brand" href="#" style="color: aliceblue">Acadêmico</a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSite">
+
+          <ul class="navbar-nav ml-auto">
+
+              <li class="nav-item">
+                  <a class="nav-link" [routerLink]="['/aluno']" routerLinkActive="router-link-active" style="color: aliceblue;">Disciplinas</a>
+              </li>
+
+              <li class="nav-item">
+                  <a class="nav-link" [routerLink]="['/aluno/historico']"  style="color: aliceblue;">Histórico</a>
+              </li>
+
+
+              <div class="btn-group">
+                  <button class="btn btn-sm" type="button" style="background: #7A8B8B" id="nome-usuario">
+                      John Emerson
+                  </button>
+                  <button type="button" class="btn btn-sm dropdown-toggle dropdown-toggle-split"
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                      style="background: #7A8B8B; color: aliceblue">
+                      <span class="sr-only">Dropdown</span>
+                  </button>
+                  <div class="dropdown-menu">
+                      <a class="dropdown-item" href="#">Perfil</a>
+                      <a class="dropdown-item" href="#">Sair</a>
+
+                  </div>
+              </div>
+          </ul>
+      </div>
+  </nav>
+  <table class="table table-hover" id="tabela-disciplina">
+      <thead>
+          <tr>
+              <th scope="col">Disciplina</th>
+              <th scope="col">Situação</th>
+              <th scope="col">1º Nota</th>
+              <th scope="col">2º Nota</th>
+              <th scope="col">Final</th>
+              <th scope="col">Média</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>disciplina 1 cc</td>
+              <td>Matriculado</td>
+              <td>2.5</td>
+              <td>2.5</td>
+              <td>2.5</td>
+              <td>3.0</td>
+          </tr>
+          <tr>
+              <td>Disciplina 2 cc</td>
+              <td>Matriculado</td>
+              <td>9.2</td>
+              <td>2.5</td>
+              <td>2.5</td>
+              <td>3.0</td>
+          </tr>
+          <tr>
+              <td>Disciplina 3 cc</td>
+              <td>Matriculado</td>
+              <td>9.2</td>
+              <td>2.5</td>
+              <td>2.5</td>
+              <td>3.0</td>
+          </tr>
+          <tr>
+              <td>Disciplina 4 cc</td>
+              <td>Matriculado</td>
+              <td>9.6</td>
+              <td>2.5</td>
+              <td>2.5</td>
+              <td>3.0</td>
+          </tr>
+          <tr>
+              <td>Disciplina 5 cc</td>
+              <td>Matriculado</td>
+              <td>9.3</td>
+              <td>2.5</td>
+              <td>2.5</td>
+              <td>3.0</td>
+          </tr>
+          <tr>
+              <td>Disciplina 6 cc</td>
+              <td>Matriculado</td>
+              <td>9.7</td>
+              <td>2.5</td>
+              <td>2.5</td>
+              <td>3.0</td>
+          </tr>
+      </tbody>
+  </table>
+
+</div>
