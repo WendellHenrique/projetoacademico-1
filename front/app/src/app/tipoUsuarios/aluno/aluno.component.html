@@ -1,6 +1,6 @@
 <div class="container">
   <nav class="navbar navbar-expand-lg	navbar-dark" style="background: #7A8B8B">
-      <a class="navbar-brand" href="#" style="color: aliceblue">Acadêmico</a>
+      <a class="navbar-brand" [routerLink]="['/aluno']" style="color: aliceblue">Acadêmico</a>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
           <span class="navbar-toggler-icon"></span>
@@ -11,7 +11,7 @@
           <ul class="navbar-nav ml-auto">
 
               <li class="nav-item">
-                  <a class="nav-link" [routerLink]="['/aluno']" routerLinkActive="router-link-active" style="color: aliceblue;">Disciplinas</a>
+                  <a class="nav-link" [routerLink]="['/aluno']" style="color: aliceblue;">Disciplinas</a>
               </li>
 
               <li class="nav-item">
@@ -29,7 +29,6 @@
                       <span class="sr-only">Dropdown</span>
                   </button>
                   <div class="dropdown-menu">
-                      <a class="dropdown-item" href="#">Perfil</a>
                       <a class="dropdown-item" href="#">Sair</a>
 
                   </div>
