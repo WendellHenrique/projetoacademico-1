@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: 'administrador', component: AdministradorComponent},
   { path: 'administrador/cadastramento', component: CadastramentoComponent},
   { path: 'administrador/alterar', component: AlterarComponent},
-  { path: '**', redirectTo: 'login', pathMatch: 'full'}
+  { path: '**', redirectTo: 'login'}
 ]
 
 @NgModule({

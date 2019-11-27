@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { Login } from './login.class';
-import { runInThisContext } from 'vm';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
+
+  private transmissaoTrocaTela = new BehaviorSubject<string>('')
 
   constructor(private http: HttpClient) { }
 
@@ -19,8 +20,6 @@ export class LoginService {
   loginGet(): Observable<any> {
     return this.http.get<any>('http://localhost:3000/login')
   }
-
-
 
 }
 

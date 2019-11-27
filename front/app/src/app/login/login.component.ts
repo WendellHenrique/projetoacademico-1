@@ -2,6 +2,7 @@ import { Component, Input, Output, OnInit } from '@angular/core';
 import { LoginService } from './login.service';
 import { Login } from './login.class';
 import * as $ from 'jquery';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import * as $ from 'jquery';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(public loginServise: LoginService) { }
+  constructor(public loginServise: LoginService, private router: Router) { }
 
   @Input() usuariodados: Login = { login: '', senha: ''}
 
@@ -29,12 +30,13 @@ export class LoginComponent implements OnInit {
 
   entrar(): void {
     this.loginServise.loginPost(this.usuariodados).subscribe()
-    this.verificarLogin()
+    setTimeout(() =>  this.verificarLogin(), 100)
   }
 
   verificarLogin(): void {
-    this.loginServise.loginGet().subscribe(test => {
-      console.log(test)
+
+    this.loginServise.loginGet().subscribe(tipo => {
+      this.router.navigate([tipo.validarLogin])
     })
   }
 

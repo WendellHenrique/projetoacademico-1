@@ -13,37 +13,38 @@ var mysql = new Mysql()
 app.use(cors(corsOptions))
 app.use(express.json())
 
+//Validacoes login
+var validacaoLogin: string
 
 
-app.post('/login',( req, res, next) => {
+app.post('/login',( req, res) => {
 
     console.log('chegou no servidor')
     console.log(req.body)
     let requicicaoLogin = req.body
-    let professorValidacao = false
-    let administradorValidacao = false
 
-    const professorTem = requicicaoLogin.login.match(/^0{1}/)
-    const administradorTem = requicicaoLogin.login.match(/^0{2}/)    
+    const professorTem = requicicaoLogin.login.match(/^00/g)
+    const administradorTem = requicicaoLogin.login.match(/^11/g)
 
-    if(professorTem){        
-        app.get('/login',(req, res) => {
-            res.send({validacao: 'professor'})
-    })
+    if(professorTem == '00'){        
+        validacaoLogin = 'professor'
     }
 
-    if(administradorTem){
-        app.get('/login',(req, res) => {
-            res.send({validacao: 'administrador'})
-        })
+    if(administradorTem == '11'){
+        validacaoLogin = 'administrador'
     }
-    
-    if(!administradorTem || !professorTem){
-        app.get('/login',(req, res) => {
-           res.send({Validacao: 'aluno'}) 
-    })
-    }   
+
+    if(administradorTem != '11' && professorTem != '00'){
+        validacaoLogin = 'aluno'
+    }
+
 })
+
+app.get('/login', (req,res) => {
+    res.send({validarLogin: validacaoLogin})
+})
+
+
 
 app.listen(3000, function(){
     console.log('servidor iniciado')
