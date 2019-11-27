@@ -71,3 +71,12 @@ nav{
 #status-usuario{
     font-size: 9px;
   }
+
+  #botaoNome{
+    border: none;
+    color: white;
+  }
+
+  #botaoSair{
+    border: none;
+  }

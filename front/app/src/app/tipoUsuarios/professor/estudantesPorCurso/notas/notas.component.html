@@ -11,16 +11,16 @@
       <div class="collapse navbar-collapse" id="navbarSite">
           <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                  <a class="nav-link" [routerLink]="['/professor']" style="color: aliceblue;">Início</a>
+                  <a class="nav-link" [routerLink]="['/professor']" style="color: aliceblue;">Inicio</a>
               </li>
               <div class="btn-group">
-                  <button class="btn  btn-sm" type="button" style="background: #7A8B8B; color: aliceblue;">
+                  <button class="btn  btn-sm" type="button" style="background: #7A8B8B; color: aliceblue;" id="botaoNome">
                       John Emerson<br>
                       <h6 id="status-usuario">Professor</h6>
                   </button>
                   <button type="button" class="btn btn-sm  dropdown-toggle dropdown-toggle-split"
                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                      style="background: #7A8B8B; color: aliceblue;">
+                      style="background: #7A8B8B; color: aliceblue;" id="botaoSair">
                       <span class="sr-only">Dropdown</span>
                   </button>
                   <div class="dropdown-menu">
@@ -74,11 +74,14 @@
                       <input type="text" class="form-control" id="inputTurma" placeholder="Semestre">
                   </div>
               </div>
-              <button type="submit" class="btn color: aliceblue;">Confirmar</button>
+              <button type="submit" class="btn btn-dark">Confirmar</button>
+              
+              <a [routerLink]="['/professor/estudantesPorCurso']"><button type="button"
+                class="btn btn-secondary" id="botaoVoltarNotas"> <i class="fas fa-angle-left"></i>Voltar</button>
+            </a>
+            
           </form>
       </div>
   </div>
-  <div class="botaoVoltar"><a [routerLink]="['/professor/estudantesPorCurso']"><button type="button"
-    class="btn btn-dark"> <i class="fas fa-angle-left"></i>Voltar</button></a>
-  </div>
+  
 </div>

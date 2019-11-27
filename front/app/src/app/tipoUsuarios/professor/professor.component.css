@@ -72,3 +72,15 @@
   #status-usuario{
     font-size: 9px;
   }
+
+  #botaoNome{
+    border: none;
+  }
+
+  #botaoSair{
+    border: none;
+  }
+
+  #botaoVoltarNotas{
+    margin-left: 40px;
+  }
