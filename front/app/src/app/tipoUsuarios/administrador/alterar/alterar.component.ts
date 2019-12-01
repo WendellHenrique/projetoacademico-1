@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TransmissaoService } from '../transmissao.service';
+import { AdministradorService } from '../administrador.service';
 
 @Component({
   selector: 'app-alterar',
@@ -10,7 +10,7 @@ export class AlterarComponent implements OnInit {
 
   private travarValor: string
 
-  constructor(private transmissao: TransmissaoService) { }
+  constructor(private transmissao: AdministradorService) { }
 
   ngOnInit() {
     this.transmissao.obterValorTravar().subscribe( valor => this.travarValor = valor)

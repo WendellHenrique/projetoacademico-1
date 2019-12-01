@@ -1,6 +1,6 @@
 import { Component, Input, Output, OnInit } from '@angular/core';
 import { LoginService } from './login.service';
-import { Login } from './login.class';
+import { Login } from './login.interface';
 import * as $ from 'jquery';
 import { Router } from '@angular/router';
 

@@ -40,35 +40,11 @@
           </tr>
       </thead>
       <tbody>
-          <tr>
-              <td>Disciplina 1</td>
-              <td>Reprovado</td>
-              <td>1º Período</td>
-              <td>2.5</td>
-          </tr>
-          <tr>
-              <td>disciplina 2 cc</td>
-              <td>Aprovado</td>
-              <td>1º Período</td>
-              <td>7.0</td>
-          </tr>
-          <tr>
-              <td> disciplina 3 cc </td>
-              <td>Aprovado</td>
-              <td>1º Período</td>
-              <td>7.0</td>
-          </tr>
-          <tr>
-              <td> disciplina 4 cc </td>
-              <td>Aprovado</td>
-              <td>1º Período</td>
-              <td>7.0</td>
-          </tr>
-          <tr>
-              <td> disciplina 5 cc </td>
-              <td>Aprovado</td>
-              <td>1º Período</td>
-              <td>7.0</td>
+          <tr *ngFor="let disciplina of listaDisciplinas; let notaMedia of listaMediaNotas">
+              <td>{{disciplina.nome}}</td>
+              <td>{{disciplina.situacao}}</td>
+              <td>{{disciplina.periodo}}</td>
+              <td>{{notaMedia}}</td>
           </tr>
       </tbody>
   </table>

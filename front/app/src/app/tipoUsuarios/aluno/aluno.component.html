@@ -47,12 +47,12 @@
           </tr>
       </thead>
       <tbody>
-          <tr>
-              <td>{{aluno.disciplina}}</td>
-              <td>{{aluno.notas[0]}}</td>
-              <td>{{aluno.notas[1]}}</td>
-              <td>{{aluno.notas[2]}}</td>
-              <td>{{mediaNotas}}}</td>
+          <tr *ngFor="let disciplina of listaDisciplinas; let notaMedia of listaMediaNotas">
+              <td>{{disciplina.nome}}</td>
+              <td>{{disciplina.notas[0]}}</td>
+              <td>{{disciplina.notas[1]}}</td>
+              <td>{{disciplina.notas[2]}}</td>
+              <td>{{notaMedia}}</td>
           </tr>
       </tbody>
   </table>

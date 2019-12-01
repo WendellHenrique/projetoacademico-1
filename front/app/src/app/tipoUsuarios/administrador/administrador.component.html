@@ -61,17 +61,15 @@
                   <tr>
                       <th scope="col">Matrícula</th>
                       <th scope="col">Aluno</th>
-                      <th scope="col">Situação</th>
                       <th scope="col">Período</th>
                       <th scope="col">Alterar</th>
                   </tr>
               </thead>
               <tbody>
-                  <tr>
-                      <td> 1710019185</td>
-                      <td>John Emerson F. R. Filho</td>
-                      <td>Matriculado</td>
-                      <td>6º Período</td>
+                  <tr *ngFor="let aluno of listaAlunos">
+                      <td>{{aluno.matricula}}</td>
+                      <td>{{aluno.alunoNome}}</td>
+                      <td>{{aluno.periodo}}</td>
                       <td><a [routerLink]="['/administrador/alterar']" (click)="alterarTravar('aluno')">Alterar</a></td>
                   </tr>
               </tbody>
@@ -89,19 +87,15 @@
                   <tr>
                       <th scope="col">Matrícula</th>
                       <th scope="col">Professor</th>
-                      <th scope="col">Situação</th>
-                      <th scope="col">Área de atuação</th>
                       <th scope="col">Titulação</th>
                       <th scope="col">Alterar</th>
                   </tr>
               </thead>
               <tbody>
-                  <tr>
-                      <td>171005</td>
-                      <td>John Emerson F. R. Filho</td>
-                      <td>Contratado</td>
-                      <td>TI</td>
-                      <td>Mestre</td>
+                  <tr *ngFor="let professor of listaProfessors">
+                      <td>{{professor.matricula}}</td>
+                      <td>{{professor.professorNome}}</td>
+                      <td>{{professor.titulacao}}</td>
                       <td><a [routerLink]="['/administrador/alterar']" (click)="alterarTravar('professor')">Alterar</a></td>
                   </tr>
               </tbody>
@@ -118,17 +112,14 @@
               <thead>
                   <tr>
                       <th scope="col">Nome do curso</th>
-                      <th scope="col">Situação</th>
                       <th scope="col">Área de atuação</th>
                       <th scope="col">Alterar</th>
                   </tr>
               </thead>
               <tbody>
-                  <tr>
-
-                      <td>Ciência da computação</td>
-                      <td>Ativo</td>
-                      <td>TI</td>
+                  <tr *ngFor="let curso of listaCursos">
+                      <td>{{curso.nomeCurso}}</td>
+                      <td>{{curso.areaAtuacao}}</td>
                       <td><a [routerLink]="['/administrador/alterar']" (click)="alterarTravar('curso')">Alterar</a></td>
                   </tr>
               </tbody>
@@ -145,17 +136,14 @@
               <thead>
                   <tr>
                       <th scope="col">Nome da Disciplina</th>
-                      <th scope="col">Área de atuação</th>
                       <th scope="col">Turmas</th>
                       <th scope="col">Alterar</th>
                   </tr>
               </thead>
               <tbody>
-                  <tr>
-
-                      <td>Estatística</td>
-                      <td>TI / Saúde / Econômico </td>
-                      <td>04</td>
+                  <tr *ngFor="let disciplina of listaDisciplinas">
+                      <td>{{disciplina.nomeDisciplina}}</td>
+                      <td>{{disciplina.quantidadeDeAlunosPorTurma}}</td>
                       <td><a [routerLink]="['/administrador/alterar']" (click)="alterarTravar('disciplina')">Alterar</a></td>
                   </tr>
               </tbody>

@@ -14,7 +14,7 @@ constructor(private http: HttpClient) { }
   }
 
   getDisciplinasComReferentesNotas(): Observable<any> {
-    return this.http.get<any>('localhost:3000')
+    return this.http.get<any>('localhost:3000/login')
   }
 
 }
