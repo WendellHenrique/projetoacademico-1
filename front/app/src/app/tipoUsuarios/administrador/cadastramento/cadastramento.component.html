@@ -59,41 +59,37 @@
     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
       <div>
         <div class="form-row">
-          <div class="form-group col-md-4">
+          <div class="form-group col-md-6">
             <label for="inputNome4">Nome</label>
-            <input type="text" class="form-control" id="inputNome4" placeholder="Nome">
+            <input [(ngModel)]="aluno.nome" type="text" class="form-control" id="inputNome4" placeholder="Nome">
           </div>
-          <div class="form-group col-md-4">
-            <label for="inputMatricula4">Matrícula</label>
-            <input type="number" class="form-control" id="inputMatricula4" placeholder="Matrícula">
-          </div>
-          <div class="form-group col-md-4">
+          <div class="form-group col-md-6">
             <label for="inputSenha4">Senha</label>
-            <input type="password" class="form-control" id="inputSenha4" placeholder="Senha">
+            <input [(ngModel)]="aluno.senha" type="password" class="form-control" id="inputSenha4" placeholder="Senha">
           </div>
         </div>
         <div class="form-group">
           <label for="inputEndereco">Endereço</label>
-          <input type="text" class="form-control" id="inputEndereco" placeholder="Rua ...">
+          <input [(ngModel)]="aluno.rua" type="text" class="form-control" id="inputEndereco" placeholder="Rua ...">
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="inputBairro">Bairro</label>
-            <input type="text" class="form-control" id="inputBairro" placeholder="Bairro ...">
+            <input [(ngModel)]="aluno.bairro" type="text" class="form-control" id="inputBairro" placeholder="Bairro ...">
           </div>
           <div class="form-group col-md-6">
             <label for="inputComplemento">Complemento</label>
-            <input type="text" class="form-control" id="inputComplemento" placeholder="Ex: Ap 401 ">
+            <input [(ngModel)]="aluno.complemento" type="text" class="form-control" id="inputComplemento" placeholder="Ex: Ap 401 ">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="inputCidade">Cidade</label>
-            <input type="text" class="form-control" id="inputCidade">
+            <input [(ngModel)]="aluno.cidade" type="text" class="form-control" id="inputCidade">
           </div>
           <div class="form-group col-md-4">
             <label for="inputEstado">Estado</label>
-            <select id="inputEstado" class="form-control">
+            <select [(ngModel)]="aluno.estado" id="inputEstado" class="form-control">
               <option selected>Escolher...</option>
               <option>Paraíba</option>
               <option>Pernambuco</option>
@@ -123,76 +119,68 @@
               <option>Sergipe</option>
               <option>Tocantins</option>
             </select>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="inputCEP">CEP</label>
-            <input type="text" class="form-control" id="inputCEP">
-          </div>
+          
         </div>
         <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="inputData">Data Vínculo</label>
-            <input type="date" class="form-control" id="inputData" placeholder="Data">
-          </div>
           <div class="form-group col-md-4">
-            <label for="inputCurso">Escolher curso</label>
-            <select id="inputCurso" class="form-control">
-              <option selected>Escolher...</option>
-              <option>Ciência da Computação</option>
-              <option>Medicina</option>
-              <option>Direito</option>
-            </select>
+            <label for="inputCEP">CEP</label>
+            <input [(ngModel)]="aluno.cep" type="text" class="form-control" id="inputCEP">
           </div>
-          <div class="form-group col-md-2">
-            <label for="inputSemestre">Escolher semestre</label>
-            <input type="text" class="form-control" id="inputSemestre" placeholder="Semestre">
+        
+        
+          <div class="form-group col-md-4">
+            <label for="inputData">Data Vínculo</label>
+            <input [(ngModel)]="aluno.dataVinculo" type="date" class="form-control" id="inputData" placeholder="Data">
           </div>
         </div>
+        <div>
+        <p>Disciplina:</p>
+        <div *ngFor="let disciplina of listaDisciplina" class="form-check">
+          <input (click)="checkGroupDisciplinasDeProfessor(disciplina)" class="form-check-input" type="checkbox">
+          <label class="form-check-label" >{{disciplina}}</label>
+        </div>
 
-        <button type="submit" class="btn btn-dark">Confirmar</button>
+        <button (click)="enviarAluno()" type="submit" class="btn btn-dark">Confirmar</button>
+        </div>
       </div>
 
     </div>
 
     <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
 
-      <form>
+      <div>
         <div class="form-row">
-          <div class="form-group col-md-4">
+          <div class="form-group col-md-6">
             <label for="inputNome4">Nome</label>
-            <input type="text" class="form-control" id="inputNome4" placeholder="Nome">
+            <input [(ngModel)]="professor.nome" type="text" class="form-control" id="inputNome4" placeholder="Nome">
           </div>
-          <div class="form-group col-md-4">
-            <label for="inputMatricula4">Matrícula</label>
-            <input type="number" class="form-control" id="inputMatricula4" placeholder="Matrícula">
-          </div>
-          <div class="form-group col-md-4">
+          <div class="form-group col-md-6">
             <label for="inputSenha4">Senha</label>
-            <input type="password" class="form-control" id="inputSenha4" placeholder="Senha">
+            <input [(ngModel)]="professor.senha" type="text" class="form-control" id="inputSenha4" placeholder="Senha">
           </div>
         </div>
         <div class="form-group">
           <label for="inputEndereco">Endereço</label>
-          <input type="text" class="form-control" id="inputEndereco" placeholder="Rua ...">
+          <input [(ngModel)]="professor.rua" type="text" class="form-control" id="inputEndereco" placeholder="Rua ...">
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="inputBairro">Bairro</label>
-            <input type="text" class="form-control" id="inputBairro" placeholder="Bairro ...">
+            <input [(ngModel)]="professor.bairro" type="text" class="form-control" id="inputBairro" placeholder="Bairro ...">
           </div>
           <div class="form-group col-md-6">
             <label for="inputComplemento">Complemento</label>
-            <input type="text" class="form-control" id="inputComplemento" placeholder="Ex: Ap 401 ">
+            <input [(ngModel)]="professor.complemento" type="text" class="form-control" id="inputComplemento" placeholder="Ex: Ap 401 ">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="inputCidade">Cidade</label>
-            <input type="text" class="form-control" id="inputCidade">
+            <input [(ngModel)]="professor.cidade" type="text" class="form-control" id="inputCidade">
           </div>
           <div class="form-group col-md-4">
             <label for="inputEstado">Estado</label>
-            <select id="inputEstado" class="form-control">
+            <select [(ngModel)]="professor.estado" id="inputEstado" class="form-control">
               <option selected>Escolher...</option>
               <option>Paraíba</option>
               <option>Pernambuco</option>
@@ -225,64 +213,27 @@
           </div>
           <div class="form-group col-md-2">
             <label for="inputCEP">CEP</label>
-            <input type="text" class="form-control" id="inputCEP">
+            <input [(ngModel)]="professor.cep" type="text" class="form-control" id="inputCEP">
           </div>
         </div>
         <div class="form-row">
-          <div class="form-group col-md-4">
+          <div class="form-group col-md-6">
             <label for="inputData">Data Vínculo</label>
-            <input type="date" class="form-control" id="inputData" placeholder="Data">
+            <input [(ngModel)]="professor.dataVinculo" type="date" class="form-control" id="inputData" placeholder="Data">
           </div>
-          <div class="form-group col-md-4">
-            <label for="inputAtuacao">Área de atuação</label>
-            <select id="inputAtuacao" class="form-control">
-              <option selected>Escolher...</option>
-              <option>TI</option>
-              <option>Saúde</option>
-              <option>Jurídico</option>
-            </select>
-          </div>
-          <div class="form-group col-md-4">
+          <div class="form-group col-md-6">
             <label for="inputTitulacao">Titulação</label>
-            <input type="text" class="form-control" id="inputTitulacao" placeholder="Titulação">
+            <input [(ngModel)]="professor.titulacao" type="text" class="form-control" id="inputTitulacao" placeholder="Titulação">
           </div>
         </div>
-        <p>Cursos:</p>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="inlineCurso1" value="opcao1">
-          <label class="form-check-label" for="inlineCurso1">Ciência da Computação</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="inlineCurso2" value="opcao2">
-          <label class="form-check-label" for="inlineCurso2">Sistemas para Internet</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="inlineCurso3" value="opcao1">
-          <label class="form-check-label" for="inlineCurso3">Medicina</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="inlineCurso4" value="opcao1">
-          <label class="form-check-label" for="inlineCurso4">Enfermagem</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="inlineCurso5" value="opcao1">
-          <label class="form-check-label" for="inlineCurso5">Administração</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="inlineCurso6" value="opcao1">
-          <label class="form-check-label" for="inlineCurso6">Economia</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="inlineCurso7" value="opcao1">
-          <label class="form-check-label" for="inlineCurso7">Direito</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="inlineCurso8" value="opcao1">
-          <label class="form-check-label" for="inlineCurso8">História</label>
+        <p>Disciplina:</p>
+        <div *ngFor="let disciplina of listaDisciplina" class="form-check">
+          <input (click)="checkGroupDisciplinasDeProfessor(disciplina)" class="form-check-input" type="checkbox">
+          <label class="form-check-label" >{{disciplina}}</label>
         </div>
 
-        <button type="submit" class="btn btn-dark">Confirmar</button>
-      </form>
+        <button (click)="enviarProfessor()" type="submit" class="btn btn-dark">Confirmar</button>
+      </div>
 
     </div>
 
@@ -344,9 +295,9 @@
         </div>
 
         <p>Cursos:</p>
-        <div class="form-check" *ngFor="let lista of listaCursos">
-          <input class="form-check-input" type="checkbox" id="inlineDiscp1" value="{{lista.nome}}">
-          <label class="form-check-label" for="inlineDiscp1">{{lista.nome}}</label>
+        <div class="form-check" *ngFor="let curso of listaCursos">
+          <input (click)="checkGroupCursosDeDisciplinas(curso)" class="form-check-input" type="checkbox" value="curso">
+          <label class="form-check-label">{{curso}}</label>
         </div>
 
         <button (click)="enviarDisciplina()" type="submit" class="btn btn-dark">Confirmar</button>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CadastramentoService } from './cadastramento.service';
 import { AlunoPost, ProfessorPost, CursoPost, DisciplinaPost } from './cadastrarmento.interface';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-cadastramento',
@@ -12,15 +13,37 @@ export class CadastramentoComponent implements OnInit {
   constructor(private cadastraRequisicao: CadastramentoService) { }
 
   aluno: AlunoPost
-  professor: ProfessorPost
+  professor: ProfessorPost = {nome: '', bairro: '', cep: '', cidade: '', complemento: '',
+                              dataVinculo: '', estado: '', rua: '', senha: '', titulacao: '', disciplinas: []}
   curso: CursoPost
-  disciplina: DisciplinaPost = {nome: '', areaDeAtuacao: '', periodo: ''}
+  disciplina: DisciplinaPost = {nome: '', areaDeAtuacao: '', periodo: '', cursos: []}
 
   listaCursos: []
+  listaCheckGroupDeDisciplinas: string[]
+  listaCheckGroupDeProfessor: string[]
+  listaDisciplina: []
 
   ngOnInit() {
     this.cadastraRequisicao.getListaCursos()
                               .subscribe(dados => this.listaCursos = dados)
+    this.cadastraRequisicao.getListaDisciplina()
+                            .subscribe(dados =>  this.listaDisciplina = dados )
+  }
+
+  checkGroupCursosDeDisciplinas(dado) {
+    if (!this.listaCheckGroupDeDisciplinas.includes(dado)) {
+      this.listaCheckGroupDeDisciplinas.push(dado)
+    } else {
+      _.remove(this.listaCheckGroupDeDisciplinas, dado)
+    }
+  }
+
+  checkGroupDisciplinasDeProfessor(dado) {
+    if (!this.listaCheckGroupDeProfessor.includes(dado)) {
+      this.listaCheckGroupDeProfessor.push(dado)
+    } else {
+      _.remove(this.listaCheckGroupDeProfessor, dado)
+    }
   }
 
   enviarDisciplina(dado: DisciplinaPost): void {
@@ -29,6 +52,14 @@ export class CadastramentoComponent implements OnInit {
 
   enviarCurso(dado: CursoPost): void {
     this.cadastraRequisicao.postCurso(dado)
+  }
+
+  enviarProfessor(dado: ProfessorPost): void {
+    this.cadastraRequisicao.postProfessor(dado)
+  }
+
+  enviarAluno(dado: AlunoPost): void {
+    this.cadastraRequisicao.postAluno(dado)
   }
 
 }

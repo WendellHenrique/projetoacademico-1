@@ -30,4 +30,8 @@ constructor(private http: HttpClient) { }
     return this.http.get('localhost:3000/administrador/cadastramentoCurso')
   }
 
+  getListaDisciplina(): Observable<any> {
+    return this.http.get('localhost:3000/administrador/cadastramentoDisciplina')
+  }
+
 }

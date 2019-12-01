@@ -1,9 +1,28 @@
 export interface AlunoPost {
-    pa
+    nome: string
+    senha: string
+    rua: string
+    bairro: string
+    complemento: string
+    cidade: string
+    estado: string
+    dataVinculo: string
+    cep: string
+    disciplinas: []
 }
 
 export interface ProfessorPost {
-    pa
+    nome: string
+    senha: string
+    rua: string
+    bairro: string
+    complemento: string
+    cidade: string
+    estado: string
+    cep: string
+    dataVinculo: string
+    titulacao: string
+    disciplinas: []
 }
 
 export interface CursoPost {
@@ -16,4 +35,5 @@ export interface DisciplinaPost {
     nome: string
     areaDeAtuacao: string
     periodo: string
+    cursos: []
 }
