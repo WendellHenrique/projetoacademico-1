@@ -1,5 +1,5 @@
-export class Login {
+export interface Login {
 
-    login: string
+    matricula: number
     senha: string
 }

@@ -8,8 +8,6 @@ var corsOptions = {
     optionsSucessStatus: 200
 }
 
-var mysql = new Mysql()
-
 app.use(cors(corsOptions))
 app.use(express.json())
 

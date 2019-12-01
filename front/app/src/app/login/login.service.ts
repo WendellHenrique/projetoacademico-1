@@ -8,9 +8,9 @@ import { Login } from './login.class';
 })
 export class LoginService {
 
-  private transmissaoTrocaTela = new BehaviorSubject<string>('')
-
   constructor(private http: HttpClient) { }
+
+  private transmissao = new BehaviorSubject<Login>({matricula: 0, senha: ''})
 
 
   loginPost(usuario: Login): Observable<Login> {
@@ -19,6 +19,14 @@ export class LoginService {
 
   loginGet(): Observable<any> {
     return this.http.get<any>('http://localhost:3000/login')
+  }
+
+  enviarUsuario(usuario: Login): void {
+    this.transmissao.next(usuario)
+  }
+
+  receberUsuario() {
+    return this.transmissao
   }
 
 }

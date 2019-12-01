@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   constructor(public loginServise: LoginService, private router: Router) { }
 
-  @Input() usuariodados: Login = { login: '', senha: ''}
+  @Input() usuariodados: Login = { matricula: 0, senha: ''}
 
 
 
@@ -30,11 +30,10 @@ export class LoginComponent implements OnInit {
 
   entrar(): void {
     this.loginServise.loginPost(this.usuariodados).subscribe()
-    setTimeout(() =>  this.verificarLogin(), 100)
+    setTimeout(() =>  this.verificarLogin(), 500)
   }
 
   verificarLogin(): void {
-
     this.loginServise.loginGet().subscribe(tipo => {
       this.router.navigate([tipo.validarLogin])
     })
