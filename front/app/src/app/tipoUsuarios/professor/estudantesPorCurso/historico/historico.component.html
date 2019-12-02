@@ -11,7 +11,7 @@
               </li>
               <div class="btn-group">
                   <button class="btn  btn-sm" type="button" style="background: #7A8B8B; color: aliceblue;" id="botaoNome">
-                      John Emerson<br>
+                      {{usuario.nome}}<br>
                       <h6 id="status-usuario">Professor</h6>
                   </button>
                   <button type="button" class="btn btn-sm  dropdown-toggle dropdown-toggle-split"
@@ -30,7 +30,7 @@
   <nav>
       <div class="nav nav-tabs" id="nav-tab" role="tablist">
           <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
-              aria-controls="nav-home" aria-selected="true">Wendell Henrique - 1710018825</a>
+              aria-controls="nav-home" aria-selected="true">nome do aluno aqui</a>
       </div>
   </nav>
   <div class="tab-content" id="nav-tabContent">
@@ -45,12 +45,12 @@
                   </tr>
               </thead>
               <tbody>
-                  <tr>
-                      <td>Banco de dados</td>
-                      <td>6º Período</td>
-                      <td>Aprovado</td>
-                      <td>10</td>
-                  </tr>
+                <tr *ngFor="let disciplina of listaDisciplinas; let notaMedia of listaMediaNotas">
+                    <td>{{disciplina.disciplina}}</td>
+                    <td>{{disciplina.periodo}}</td>
+                    <td>{{disciplina.situacao}}</td>
+                    <td>{{notaMedia}}</td>
+                </tr>
               </tbody>
           </table>
       </div>

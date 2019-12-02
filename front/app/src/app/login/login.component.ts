@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   constructor(public loginServise: LoginService, private router: Router) { }
 
-  @Input() usuariodados: Login = { matricula: 0, senha: ''}
+  @Input() usuariodados: Login = { matricula: 0, senha: '', nome: ''}
 
 
 

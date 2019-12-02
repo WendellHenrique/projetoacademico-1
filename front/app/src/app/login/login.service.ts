@@ -10,7 +10,7 @@ export class LoginService {
 
   constructor(private http: HttpClient) { }
 
-  private transmissao = new BehaviorSubject<Login>({matricula: 0, senha: ''})
+  private transmissao = new BehaviorSubject<Login>({matricula: 0, senha: '', nome: ''})
 
 
   loginPost(usuario: Login): Observable<Login> {

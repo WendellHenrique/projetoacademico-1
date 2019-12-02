@@ -11,7 +11,7 @@
               </li>
               <div class="btn-group">
                   <button class="btn  btn-sm" type="button" style="background: #7A8B8B; color: aliceblue;" id="botaoNome">
-                      John Emerson<br>
+                      {{usuario.nome}}<br>
                       <h6 id="status-usuario">Professor</h6>
                   </button>
                   <button type="button" class="btn btn-sm  dropdown-toggle dropdown-toggle-split"
@@ -52,13 +52,15 @@
               </thead>
               <tbody>
                   <tr>
-                      <th scope="row">1710019185</th>
-                      <td>John Emerson F. R. Filho</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>reAprovado</td>
+                    <tr *ngFor="let estudantes of listaCamposEstudantes; let media of ListaMedias">
+                        <th scope="row">{{estudantes.matricula}}</th>
+                        <td>{{estudantes.nomeAluno}}</td>
+                        <td>{{estudantes.notas[0]}}</td>
+                        <td>{{estudantes.notas[1]}}</td>
+                        <td>{{estudantes.notas[2]}}</td>
+                        <td>{{media}}</td>
+                        <td>{{estudantes.situacao}}</td>
+                        <td>
                       <td><a [routerLink]="['/professor/estudantesPorCurso/notas']" >Alterar</a></td>
                       <td><a [routerLink]="['/professor/estudantesPorCurso/historico']" >Acessar Histórico</a></td>
                   </tr>

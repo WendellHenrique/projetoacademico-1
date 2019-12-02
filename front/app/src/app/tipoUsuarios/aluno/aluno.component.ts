@@ -35,6 +35,7 @@ export class AlunoComponent implements OnInit {
         mediaTemporaria += nota
         })
       this.listaMediaNotas.push(mediaTemporaria)
+      mediaTemporaria = 0
     })
   }
 

@@ -75,11 +75,13 @@
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="inputBairro">Bairro</label>
-            <input [(ngModel)]="aluno.bairro" type="text" class="form-control" id="inputBairro" placeholder="Bairro ...">
+            <input [(ngModel)]="aluno.bairro" type="text" class="form-control" id="inputBairro"
+              placeholder="Bairro ...">
           </div>
           <div class="form-group col-md-6">
             <label for="inputComplemento">Complemento</label>
-            <input [(ngModel)]="aluno.complemento" type="text" class="form-control" id="inputComplemento" placeholder="Ex: Ap 401 ">
+            <input [(ngModel)]="aluno.complemento" type="text" class="form-control" id="inputComplemento"
+              placeholder="Ex: Ap 401 ">
           </div>
         </div>
         <div class="form-row">
@@ -87,7 +89,7 @@
             <label for="inputCidade">Cidade</label>
             <input [(ngModel)]="aluno.cidade" type="text" class="form-control" id="inputCidade">
           </div>
-          <div class="form-group col-md-4">
+          <div class="form-group col-md-6">
             <label for="inputEstado">Estado</label>
             <select [(ngModel)]="aluno.estado" id="inputEstado" class="form-control">
               <option selected>Escolher...</option>
@@ -119,28 +121,29 @@
               <option>Sergipe</option>
               <option>Tocantins</option>
             </select>
-          
+          </div>
         </div>
         <div class="form-row">
-          <div class="form-group col-md-4">
+          <div class="form-group col-md-6">
             <label for="inputCEP">CEP</label>
             <input [(ngModel)]="aluno.cep" type="text" class="form-control" id="inputCEP">
           </div>
-        
-        
-          <div class="form-group col-md-4">
+
+
+          <div class="form-group col-md-6">
             <label for="inputData">Data Vínculo</label>
             <input [(ngModel)]="aluno.dataVinculo" type="date" class="form-control" id="inputData" placeholder="Data">
           </div>
         </div>
         <div>
-        <p>Disciplina:</p>
-        <div *ngFor="let disciplina of listaDisciplina" class="form-check">
-          <input (click)="checkGroupDisciplinasDeProfessor(disciplina)" class="form-check-input" type="checkbox">
-          <label class="form-check-label" >{{disciplina}}</label>
-        </div>
+          <p>Disciplinas: </p>
+          <div *ngFor="let disciplina of listaDisciplina" class="form-check">
 
-        <button (click)="enviarAluno()" type="submit" class="btn btn-dark">Confirmar</button>
+            <input (click)="checkGroupDisciplinasDeProfessor(disciplina)" class="form-check-input" type="checkbox">
+            <label class="form-check-label">{{disciplina}}</label>
+          </div>
+
+          <button (click)="enviarAluno()" type="submit" class="btn btn-dark">Confirmar</button>
         </div>
       </div>
 
@@ -166,11 +169,13 @@
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="inputBairro">Bairro</label>
-            <input [(ngModel)]="professor.bairro" type="text" class="form-control" id="inputBairro" placeholder="Bairro ...">
+            <input [(ngModel)]="professor.bairro" type="text" class="form-control" id="inputBairro"
+              placeholder="Bairro ...">
           </div>
           <div class="form-group col-md-6">
             <label for="inputComplemento">Complemento</label>
-            <input [(ngModel)]="professor.complemento" type="text" class="form-control" id="inputComplemento" placeholder="Ex: Ap 401 ">
+            <input [(ngModel)]="professor.complemento" type="text" class="form-control" id="inputComplemento"
+              placeholder="Ex: Ap 401 ">
           </div>
         </div>
         <div class="form-row">
@@ -219,17 +224,19 @@
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="inputData">Data Vínculo</label>
-            <input [(ngModel)]="professor.dataVinculo" type="date" class="form-control" id="inputData" placeholder="Data">
+            <input [(ngModel)]="professor.dataVinculo" type="date" class="form-control" id="inputData"
+              placeholder="Data">
           </div>
           <div class="form-group col-md-6">
             <label for="inputTitulacao">Titulação</label>
-            <input [(ngModel)]="professor.titulacao" type="text" class="form-control" id="inputTitulacao" placeholder="Titulação">
+            <input [(ngModel)]="professor.titulacao" type="text" class="form-control" id="inputTitulacao"
+              placeholder="Titulação">
           </div>
         </div>
         <p>Disciplina:</p>
         <div *ngFor="let disciplina of listaDisciplina" class="form-check">
           <input (click)="checkGroupDisciplinasDeProfessor(disciplina)" class="form-check-input" type="checkbox">
-          <label class="form-check-label" >{{disciplina}}</label>
+          <label class="form-check-label">{{disciplina}}</label>
         </div>
 
         <button (click)="enviarProfessor()" type="submit" class="btn btn-dark">Confirmar</button>
@@ -243,22 +250,24 @@
         <div class="form-row">
           <div class="form-group col-md-12">
             <label for="inputNomeCurso">Nome do curso</label>
-            <input [(ngModel)]="curso.nome" type="text" class="form-control" id="inputNomeCurso" placeholder="Nome do Curso">
+            <input [(ngModel)]="curso.nome" type="text" class="form-control" id="inputNomeCurso"
+              placeholder="Nome do Curso">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="inputTurmaAno">Turma-ano</label>
-            <input [(ngModel)]="curso.turmaAno" type="number" id="inputTurmaAno" class="form-control" placeholder="2019">
+            <input [(ngModel)]="curso.turmaAno" type="number" id="inputTurmaAno" class="form-control"
+              placeholder="2019">
           </div>
           <div class="form-group col-md-6">
             <label for="inputTurmaSemestre">Turma-semestre</label>
-            <select [(ngModel)]="curso.turmaSemestre"  type="number" id="inputTurmaSemestre" class="form-control">
+            <select [(ngModel)]="curso.turmaSemestre" type="number" id="inputTurmaSemestre" class="form-control">
               <option selected value="1">primeiro semestre</option>
               <option value="2">segundo semestre</option>
             </select>
           </div>
-        </div>        
+        </div>
 
         <button (click)="enviarCurso()" type="submit" class="btn btn-dark">Confirmar</button>
       </div>
@@ -289,7 +298,7 @@
               <option selected value="8 Periodo">8 Período</option>
               <option selected value="9 Periodo">9 Período</option>
               <option selected value="10 Periodo">10 Período</option>
-              
+
             </select>
           </div>
         </div>

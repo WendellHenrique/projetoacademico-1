@@ -1,6 +1,8 @@
 import { Component, OnInit} from '@angular/core';
 import { AdministradorService } from './administrador.service';
 import { DadosAlunos, DadosProfessor, DadosCurso, DadosDisciplina } from './administrador.interface';
+import { Login } from 'src/app/login/login.interface';
+import { LoginService } from 'src/app/login/login.service';
 
 @Component({
   selector: 'app-administrador',
@@ -9,7 +11,9 @@ import { DadosAlunos, DadosProfessor, DadosCurso, DadosDisciplina } from './admi
 })
 export class AdministradorComponent implements OnInit {
 
-  constructor(private administradorService: AdministradorService) { }
+  constructor(private administradorService: AdministradorService, private usuarioService: LoginService) { }
+
+  usuario: Login
 
   listaAlunos: DadosAlunos
   listaProfessors: DadosProfessor
@@ -18,6 +22,8 @@ export class AdministradorComponent implements OnInit {
 
 
   ngOnInit() {
+    this.usuarioService.receberUsuario().subscribe(dado => this.usuario = dado)
+
     this.administradorService.getReceberListaAlunos()
                               .subscribe(dados => this.listaAlunos)
 

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CadastramentoService } from './cadastramento.service';
 import { AlunoPost, ProfessorPost, CursoPost, DisciplinaPost } from './cadastrarmento.interface';
 import * as _ from 'lodash';
+import { Login } from 'src/app/login/login.interface';
+import { LoginService } from 'src/app/login/login.service';
 
 @Component({
   selector: 'app-cadastramento',
@@ -10,12 +12,15 @@ import * as _ from 'lodash';
 })
 export class CadastramentoComponent implements OnInit {
 
-  constructor(private cadastraRequisicao: CadastramentoService) { }
+  constructor(private cadastraRequisicao: CadastramentoService, private usuarioService: LoginService) { }
 
-  aluno: AlunoPost
+  usuario: Login
+
+  aluno: AlunoPost = {bairro: '', cep: '', cidade: '', complemento: '', dataVinculo: '',
+                    disciplinas: [], estado: '', nome: '', rua: '', senha: '' }
   professor: ProfessorPost = {nome: '', bairro: '', cep: '', cidade: '', complemento: '',
                               dataVinculo: '', estado: '', rua: '', senha: '', titulacao: '', disciplinas: []}
-  curso: CursoPost
+  curso: CursoPost = {nome: '', turmaAno: 0, turmaSemestre: 0}
   disciplina: DisciplinaPost = {nome: '', areaDeAtuacao: '', periodo: '', cursos: []}
 
   listaCursos: []
@@ -24,6 +29,8 @@ export class CadastramentoComponent implements OnInit {
   listaDisciplina: []
 
   ngOnInit() {
+    this.usuarioService.receberUsuario().subscribe(dado => this.usuario = dado)
+
     this.cadastraRequisicao.getListaCursos()
                               .subscribe(dados => this.listaCursos = dados)
     this.cadastraRequisicao.getListaDisciplina()

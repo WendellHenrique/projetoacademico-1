@@ -101,30 +101,7 @@
               </tbody>
           </table>
       </div>
-      <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-          <label>Pesquisar por nome do curso: </label>
-          <div class="d-flex justify-content-start" id="campoPesquisa">
-              <input class="form-control mr-sm-2" id="caixaPesquisa" type="search" placeholder="Pesquisar"
-                  aria-label="Pesquisar">
-              <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Pesquisar </button>
-          </div>
-          <table class="table table-hover" id="tabela-Listagem-Curso">
-              <thead>
-                  <tr>
-                      <th scope="col">Nome do curso</th>
-                      <th scope="col">Área de atuação</th>
-                      <th scope="col">Alterar</th>
-                  </tr>
-              </thead>
-              <tbody>
-                  <tr *ngFor="let curso of listaCursos">
-                      <td>{{curso.nomeCurso}}</td>
-                      <td>{{curso.areaAtuacao}}</td>
-                      <td><a [routerLink]="['/administrador/alterar']" (click)="alterarTravar('curso')">Alterar</a></td>
-                  </tr>
-              </tbody>
-          </table>
-      </div>
+
       <div class="tab-pane fade" id="nav-disciplina" role="tabpanel" aria-labelledby="nav-disciplina-tab">
           <label>Pesquisar por nome da disciplina: </label>
           <div class="d-flex justify-content-start" id="campoPesquisa">
@@ -149,5 +126,29 @@
               </tbody>
           </table>
       </div>
+      <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+        <label>Pesquisar por nome do curso: </label>
+        <div class="d-flex justify-content-start" id="campoPesquisa">
+            <input class="form-control mr-sm-2" id="caixaPesquisa" type="search" placeholder="Pesquisar"
+                aria-label="Pesquisar">
+            <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Pesquisar </button>
+        </div>
+        <table class="table table-hover" id="tabela-Listagem-Curso">
+            <thead>
+                <tr>
+                    <th scope="col">Nome do curso</th>
+                    <th scope="col">Área de atuação</th>
+                    <th scope="col">Alterar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let curso of listaCursos">
+                    <td>{{curso.nomeCurso}}</td>
+                    <td>{{curso.areaAtuacao}}</td>
+                    <td><a [routerLink]="['/administrador/alterar']" (click)="alterarTravar('curso')">Alterar</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
   </div>
 </div>

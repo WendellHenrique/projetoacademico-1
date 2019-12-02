@@ -1,87 +1,74 @@
 <div class="container">
 
-  <nav class="navbar navbar-expand-lg	navbar-dark " id="praBaixo" style="background: #7A8B8B">
+    <nav class="navbar navbar-expand-lg	navbar-dark " id="praBaixo" style="background: #7A8B8B">
 
-      <a class="navbar-brand" [routerLink]="['/professor']">Acadêmico - Inserção de Notas</a>
+        <a class="navbar-brand" [routerLink]="['/professor']">Acadêmico - Inserção de Notas</a>
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
-          <span class="navbar-toggler-icon"></span>
-      </button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <div class="collapse navbar-collapse" id="navbarSite">
-          <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                  <a class="nav-link" [routerLink]="['/professor']" style="color: aliceblue;">Inicio</a>
-              </li>
-              <div class="btn-group">
-                  <button class="btn  btn-sm" type="button" style="background: #7A8B8B; color: aliceblue;" id="botaoNome">
-                      John Emerson<br>
-                      <h6 id="status-usuario">Professor</h6>
-                  </button>
-                  <button type="button" class="btn btn-sm  dropdown-toggle dropdown-toggle-split"
-                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                      style="background: #7A8B8B; color: aliceblue;" id="botaoSair">
-                      <span class="sr-only">Dropdown</span>
-                  </button>
-                  <div class="dropdown-menu">
-                      <a class="dropdown-item" href="#">Sair</a>
-                  </div>
-              </div>
-          </ul>
-      </div>
+        <div class="collapse navbar-collapse" id="navbarSite">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/professor']" style="color: aliceblue;">Inicio</a>
+                </li>
+                <div class="btn-group">
+                    <button class="btn  btn-sm" type="button" style="background: #7A8B8B; color: aliceblue;"
+                        id="botaoNome">
+                        {{usuario.nome}}<br>
+                        <h6 id="status-usuario">Professor</h6>
+                    </button>
+                    <button type="button" class="btn btn-sm  dropdown-toggle dropdown-toggle-split"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        style="background: #7A8B8B; color: aliceblue;" id="botaoSair">
+                        <span class="sr-only">Dropdown</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Sair</a>
+                    </div>
+                </div>
+            </ul>
+        </div>
 
-  </nav>
+    </nav>
 
-  <nav>
-      <div class="nav nav-tabs" id="nav-tab" role="tablist">
-          <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
-              aria-controls="nav-home" aria-selected="true">Inserir notas dos Alunos</a>
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+                aria-controls="nav-home" aria-selected="true">Inserir notas dos Alunos</a>
 
-      </div>
+        </div>
 
-  </nav>
+    </nav>
 
-  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-content" id="nav-tabContent">
 
-      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-          <form>
-              <div class="form-row">
-                  <div class="form-group col-md-6">
-                      <label for="inputNome4">Nome</label>
-                      <input type="text" class="form-control" id="inputNome4" placeholder="Nome">
-                  </div>
-                  <div class="form-group col-md-6">
-                      <label for="inputMatricula4">Matrícula</label>
-                      <input type="number" class="form-control" id="inputMatricula4" placeholder="Matrícula">
-                  </div>
-              </div>
-              <div class="form-row">
-                  <div class="form-group col-md-6">
-                      <label for="inputNota">Inserir nota</label>
-                      <input type="text" class="form-control" id="inputNota" placeholder="Nota do aluno">
-                  </div>
-                  <div class="form-group col-md-4">
-                      <label for="inputCurso">Escolher curso</label>
-                      <select id="inputCurso" class="form-control">
-                          <option selected>Escolher...</option>
-                          <option>Ciência da Computação</option>
-                          <option>Medicina</option>
-                          <option>Direito</option>
-                      </select>
-                  </div>
-                  <div class="form-group col-md-2">
-                      <label for="inputTurma">Turma</label>
-                      <input type="text" class="form-control" id="inputTurma" placeholder="Semestre">
-                  </div>
-              </div>
-              <button type="submit" class="btn btn-dark">Confirmar</button>
-              
-              <a [routerLink]="['/professor/estudantesPorCurso']"><button type="button"
-                class="btn btn-secondary" id="botaoVoltarNotas"> <i class="fas fa-angle-left"></i>Voltar</button>
-            </a>
-            
-          </form>
-      </div>
-  </div>
-  
+        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+            <div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputNota">Inserir nota</label>
+                        <input [(ngModel)]="InsercaoNotas.nota" type="number" class="form-control" id="inputNota"
+                            placeholder="Nota do aluno">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputCurso">Tipo de nota</label>
+                        <select [(ngModel)]="InsercaoNotas.tipoNota" id="inputCurso" class="form-control">
+                            <option value="nota1">Nota 1</option>
+                            <option value="nota2">Nota 2</option>
+                            <option value="notaFinal">Nota Final</option>
+                        </select>
+                    </div>
+                </div>
+                <button (click)="GuardarNota()" type="submit" class="btn btn-dark">Confirmar</button>
+
+                <a [routerLink]="['/professor/estudantesPorCurso']"><button type="button" class="btn btn-secondary"
+                        id="botaoVoltarNotas"> <i class="fas fa-angle-left"></i>Voltar</button>
+                </a>
+
+            </div>
+        </div>
+    </div>
+
 </div>
