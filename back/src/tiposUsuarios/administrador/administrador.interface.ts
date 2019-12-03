@@ -6,9 +6,9 @@ export interface AlunoPost {
     complemento: string
     cidade: string
     estado: string
-    dataVinculo: string
+    dataVinculo: Date
     cep: string
-    disciplinas: []
+    disciplinas: string[]
 }
 
 export interface ProfessorPost {
@@ -20,9 +20,9 @@ export interface ProfessorPost {
     cidade: string
     estado: string
     cep: string
-    dataVinculo: string
+    dataVinculo: Date
     titulacao: string
-    disciplinas: []
+    disciplinas: string[]
 }
 
 export interface CursoPost {

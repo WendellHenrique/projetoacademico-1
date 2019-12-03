@@ -25,16 +25,16 @@ export class AdministradorComponent implements OnInit {
     this.usuarioService.receberUsuario().subscribe(dado => this.usuario = dado)
 
     this.administradorService.getReceberListaAlunos()
-                              .subscribe(dados => this.listaAlunos)
+                              .subscribe(dados => this.listaAlunos = dados)
 
     this.administradorService.getReceberListaProfessores()
-                              .subscribe(dados => this.listaProfessors)
+                              .subscribe(dados => this.listaProfessors = dados)
 
     this.administradorService.getReceberListaCursos()
-                              .subscribe(dados => this.listaCursos)
+                              .subscribe(dados => this.listaCursos = dados)
 
     this.administradorService.getReceberListaDisciplinas()
-                              .subscribe(dados => this.listaDisciplinas)
+                              .subscribe(dados => this.listaDisciplinas = dados)
   }
 
   alterarTravar(valor: string) {

@@ -5,6 +5,26 @@ import { Response } from 'express';
 @Controller('administrador')
 export class AdministradorController {
 
+    @Get('listaAlunos')
+    enviarListaAlunos(@Res() res: Response){
+        res.status(200).send([{matricula: 4564, alunoNome: 'leo', periodo: '4 periodo'}])
+    }
+
+    @Get('listaProfessores')
+    enviarListaProfessores() {
+        console.log('lista')
+    }
+
+    @Get('listaCursos')
+    enviarListaCursos() {
+        console.log('lista')
+    }
+
+    @Get('listaDisciplinas')
+    enviarListaDisciplinas() {
+        console.log('lista')
+    }
+
     @Post('cadastrarCurso')
     receberCurso(@Body() curso: CursoPost){
         console.log(curso)

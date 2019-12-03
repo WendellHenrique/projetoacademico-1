@@ -26,19 +26,19 @@ export class AdministradorService {
   }
 
   getReceberListaAlunos(): Observable<any> {
-    return this.http.get<any>('localhost:3000/administrador/listaAlunos')
+    return this.http.get<any>('http://localhost:3000/administrador/listaAlunos')
   }
 
   getReceberListaProfessores(): Observable<any> {
-    return this.http.get<any>('localhost:3000/administrador/listaProfessores')
+    return this.http.get<any>('http://localhost:3000/administrador/listaProfessores')
   }
 
   getReceberListaCursos(): Observable<any> {
-    return this.http.get<any>('localhost:3000/administrador/listaCursos')
+    return this.http.get<any>('http://localhost:3000/administrador/listaCursos')
   }
 
   getReceberListaDisciplinas(): Observable<any> {
-    return this.http.get<any>('localhost:3000/administrador/listaDisciplinas')
+    return this.http.get<any>('http://localhost:3000/administrador/listaDisciplinas')
   }
 
 }
