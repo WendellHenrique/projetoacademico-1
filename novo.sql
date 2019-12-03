@@ -23,6 +23,7 @@ USE `mydb` ;
 CREATE TABLE IF NOT EXISTS `mydb`.`administrador` (
   `matricula` INT NOT NULL,
   `senha` VARCHAR(15) NOT NULL,
+  `nome` VARCHAR(30) NOT NULL,
   `numero` INT NULL DEFAULT NULL,
   `complemento` VARCHAR(20) NULL DEFAULT NULL,
   `cidade` VARCHAR(20) NULL DEFAULT NULL,
@@ -41,6 +42,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`professor` (
   `titulacao` VARCHAR(50) NULL DEFAULT NULL,
   `matricula` INT NOT NULL,
   `senha` VARCHAR(15) NOT NULL,
+  `nome` VARCHAR(30) NOT NULL,
   `complemento` VARCHAR(20) NULL DEFAULT NULL,
   `cidade` VARCHAR(20) NULL DEFAULT NULL,
   `bairro` VARCHAR(20) NULL DEFAULT NULL,
@@ -83,6 +85,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`aluno` (
   `dataVinculo` DATETIME NOT NULL,
   `matricula` INT NOT NULL,
   `senha` VARCHAR(15) NOT NULL,
+  `nome` VARCHAR(30) NOT NULL,
   `complemento` VARCHAR(20) NULL DEFAULT NULL,
   `cidade` VARCHAR(20) NULL DEFAULT NULL,
   `bairro` VARCHAR(20) NULL DEFAULT NULL,

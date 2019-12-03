@@ -8,7 +8,7 @@ export interface AlunoPut {
     estado: string
     dataVinculo: string
     cep: string
-    disciplinas: []
+    disciplinas: string[]
 }
 
 export interface ProfessorPut {
@@ -22,7 +22,7 @@ export interface ProfessorPut {
     cep: string
     dataVinculo: string
     titulacao: string
-    disciplinas: []
+    disciplinas: string[]
 }
 
 export interface CursoPut {
@@ -35,5 +35,5 @@ export interface DisciplinaPut {
     nome: string
     areaDeAtuacao: string
     periodo: string
-    cursos: []
+    cursos: string[]
 }

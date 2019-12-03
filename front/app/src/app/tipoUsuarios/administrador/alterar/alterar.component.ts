@@ -24,10 +24,8 @@ export class AlterarComponent implements OnInit {
   curso: CursoPut = {nome: '', turmaAno: 0, turmaSemestre: 0}
   disciplina: DisciplinaPut = {nome: '', areaDeAtuacao: '', periodo: '', cursos: []}
 
-  listaCursos: []
-  listaCheckGroupDeDisciplinas: string[]
-  listaCheckGroupDeProfessor: string[]
-  listaDisciplina: []
+  listaCursos = []
+  listaDisciplina = []
 
   constructor(private transmissao: AdministradorService ,
               private alterarRequisicao: AlterarService, private usuarioService: LoginService) { }
@@ -43,35 +41,43 @@ export class AlterarComponent implements OnInit {
   }
 
   checkGroupCursosDeDisciplinas(dado) {
-    if (!this.listaCheckGroupDeDisciplinas.includes(dado)) {
-      this.listaCheckGroupDeDisciplinas.push(dado)
+    if (this.disciplina.cursos.includes(dado)) {
+      this.disciplina.cursos = _.remove(this.disciplina.cursos, dado)
     } else {
-      _.remove(this.listaCheckGroupDeDisciplinas, dado)
+      this.disciplina.cursos.push(dado)
     }
   }
 
   checkGroupDisciplinasDeProfessor(dado) {
-    if (!this.listaCheckGroupDeProfessor.includes(dado)) {
-      this.listaCheckGroupDeProfessor.push(dado)
+    if (!this.professor.disciplinas.includes(dado)) {
+      this.professor.disciplinas.push(dado)
     } else {
-      _.remove(this.listaCheckGroupDeProfessor, dado)
+      this.professor.disciplinas = _.remove(this.professor.disciplinas, dado)
     }
   }
 
-  enviarDisciplina(dado: DisciplinaPut): void {
-    this.alterarRequisicao.putDisciplina(dado)
+  checkGroupDisciplinasDeAluno(dado) {
+    if (!this.aluno.disciplinas.includes(dado)) {
+      this.aluno.disciplinas.push(dado)
+    } else {
+      this.aluno.disciplinas = _.remove(this.aluno.disciplinas, dado)
+    }
   }
 
-  enviarCurso(dado: CursoPut): void {
-    this.alterarRequisicao.putCurso(dado)
+  enviarDisciplina(): void {
+    this.alterarRequisicao.putDisciplina(this.disciplina).subscribe()
   }
 
-  enviarProfessor(dado: ProfessorPut): void {
-    this.alterarRequisicao.putProfessor(dado)
+  enviarCurso(): void {
+    this.alterarRequisicao.putCurso(this.curso).subscribe()
   }
 
-  enviarAluno(dado: AlunoPut): void {
-    this.alterarRequisicao.putAluno(dado)
+  enviarProfessor(): void {
+    this.alterarRequisicao.putProfessor(this.professor).subscribe()
+  }
+
+  enviarAluno(): void {
+    this.alterarRequisicao.putAluno(this.aluno).subscribe()
   }
 
 }

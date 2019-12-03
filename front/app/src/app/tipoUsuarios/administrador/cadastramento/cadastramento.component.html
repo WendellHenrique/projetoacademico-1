@@ -139,7 +139,7 @@
           <p>Disciplinas: </p>
           <div *ngFor="let disciplina of listaDisciplina" class="form-check">
 
-            <input (click)="checkGroupDisciplinasDeProfessor(disciplina)" class="form-check-input" type="checkbox">
+            <input (click)="checkGroupDisciplinasDeAluno(disciplina)" class="form-check-input" type="checkbox">
             <label class="form-check-label">{{disciplina}}</label>
           </div>
 
@@ -304,8 +304,8 @@
         </div>
 
         <p>Cursos:</p>
-        <div class="form-check" *ngFor="let curso of listaCursos">
-          <input (click)="checkGroupCursosDeDisciplinas(curso)" class="form-check-input" type="checkbox" value="curso">
+        <div class="form-check" *ngFor="let curso of listaCursos; let i of index">
+          <input (click)="checkGroupCursosDeDisciplinas(curso)" value="curso" class="form-check-input" type="checkbox" >
           <label class="form-check-label">{{curso}}</label>
         </div>
 

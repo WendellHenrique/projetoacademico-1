@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CadastramentoService } from './cadastramento.service';
 import { AlunoPost, ProfessorPost, CursoPost, DisciplinaPost } from './cadastrarmento.interface';
 import * as _ from 'lodash';
@@ -20,13 +20,11 @@ export class CadastramentoComponent implements OnInit {
                     disciplinas: [], estado: '', nome: '', rua: '', senha: '' }
   professor: ProfessorPost = {nome: '', bairro: '', cep: '', cidade: '', complemento: '',
                               dataVinculo: '', estado: '', rua: '', senha: '', titulacao: '', disciplinas: []}
-  curso: CursoPost = {nome: '', turmaAno: 0, turmaSemestre: 0}
+  @Input() curso: CursoPost = {nome: '', turmaAno: 2019, turmaSemestre: 1}
   disciplina: DisciplinaPost = {nome: '', areaDeAtuacao: '', periodo: '', cursos: []}
 
-  listaCursos: []
-  listaCheckGroupDeDisciplinas: string[]
-  listaCheckGroupDeProfessor: string[]
-  listaDisciplina: []
+  listaCursos = []
+  listaDisciplina = []
 
   ngOnInit() {
     this.usuarioService.receberUsuario().subscribe(dado => this.usuario = dado)
@@ -38,35 +36,43 @@ export class CadastramentoComponent implements OnInit {
   }
 
   checkGroupCursosDeDisciplinas(dado) {
-    if (!this.listaCheckGroupDeDisciplinas.includes(dado)) {
-      this.listaCheckGroupDeDisciplinas.push(dado)
+    if (this.disciplina.cursos.includes(dado)) {
+      this.disciplina.cursos = _.remove(this.disciplina.cursos, dado)
     } else {
-      _.remove(this.listaCheckGroupDeDisciplinas, dado)
+      this.disciplina.cursos.push(dado)
     }
   }
 
   checkGroupDisciplinasDeProfessor(dado) {
-    if (!this.listaCheckGroupDeProfessor.includes(dado)) {
-      this.listaCheckGroupDeProfessor.push(dado)
+    if (!this.professor.disciplinas.includes(dado)) {
+      this.professor.disciplinas.push(dado)
     } else {
-      _.remove(this.listaCheckGroupDeProfessor, dado)
+      this.professor.disciplinas = _.remove(this.professor.disciplinas, dado)
     }
   }
 
-  enviarDisciplina(dado: DisciplinaPost): void {
-    this.cadastraRequisicao.postDisciplina(dado)
+  checkGroupDisciplinasDeAluno(dado) {
+    if (!this.aluno.disciplinas.includes(dado)) {
+      this.aluno.disciplinas.push(dado)
+    } else {
+      this.aluno.disciplinas = _.remove(this.aluno.disciplinas, dado)
+    }
   }
 
-  enviarCurso(dado: CursoPost): void {
-    this.cadastraRequisicao.postCurso(dado)
+  enviarDisciplina(): void {
+    this.cadastraRequisicao.postDisciplina(this.disciplina).subscribe()
+  }
+
+  enviarCurso(): void {
+    this.cadastraRequisicao.postCurso(this.curso).subscribe()
   }
 
   enviarProfessor(dado: ProfessorPost): void {
-    this.cadastraRequisicao.postProfessor(dado)
+    this.cadastraRequisicao.postProfessor(this.professor).subscribe()
   }
 
   enviarAluno(dado: AlunoPost): void {
-    this.cadastraRequisicao.postAluno(dado)
+    this.cadastraRequisicao.postAluno(this.aluno).subscribe()
   }
 
 }

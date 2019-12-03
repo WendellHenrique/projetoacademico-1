@@ -10,28 +10,28 @@ export class CadastramentoService {
 
 constructor(private http: HttpClient) { }
 
-  postAluno(dado: AlunoPost) {
-    this.http.post('localhost:3000/administrador/cadastrarAluno', dado)
+  postAluno(dado: AlunoPost): Observable<AlunoPost> {
+    return  this.http.post<AlunoPost>('http://localhost:3000/administrador/cadastrarAluno', dado)
   }
 
   postProfessor(dado: ProfessorPost) {
-    this.http.post('localhost:3000/administrador/cadastrarProfessor', dado)
+    return  this.http.post<ProfessorPost>('http://localhost:3000/administrador/cadastrarProfessor', dado)
   }
 
   postCurso(dado: CursoPost) {
-    this.http.post('localhost:3000/administrador/cadastrarCurso', dado)
+    return  this.http.post<CursoPost>('http://localhost:3000/administrador/cadastrarCurso', dado)
   }
 
   postDisciplina(dado: DisciplinaPost) {
-    this.http.post('localhost:3000/administrador/cadastrarDisciplina', dado)
+    return  this.http.post<DisciplinaPost>('http://localhost:3000/administrador/cadastrarDisciplina', dado)
   }
 
   getListaCursos(): Observable<any> {
-    return this.http.get('localhost:3000/administrador/cadastramentoCurso')
+    return this.http.get('http://localhost:3000/administrador/cadastramentoCurso')
   }
 
   getListaDisciplina(): Observable<any> {
-    return this.http.get('localhost:3000/administrador/cadastramentoDisciplina')
+    return this.http.get('http://localhost:3000/administrador/cadastramentoDisciplina')
   }
 
 }
