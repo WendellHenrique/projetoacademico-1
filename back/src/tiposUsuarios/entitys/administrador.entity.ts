@@ -13,25 +13,25 @@ export class AdministradorEntity {
     @Column({nullable: false, type: "varchar", length: 30})
     nome: string
 
-    @Column({type: "integer"})
+    @Column({nullable: true, type: "integer"})
     numero: string
 
-    @Column({type: "varchar", length: 20})
+    @Column({nullable: true, type: "varchar", length: 20})
     complemento: string
 
-    @Column({type: "varchar", length: 20})
+    @Column({nullable: true, type: "varchar", length: 20})
     cidade: string
 
-    @Column({type: "varchar", length: 20})
+    @Column({nullable: true, type: "varchar", length: 20})
     bairro: string
 
-    @Column({type: "varchar", length: 50})
+    @Column({nullable: true, type: "varchar", length: 50})
     rua: string
 
-    @Column({type: "varchar", length: 15})
+    @Column({nullable: true, type: "varchar", length: 15})
     cep: string
 
-    @Column({type: "varchar", length: 2})
+    @Column({nullable: true,type: "varchar", length: 2})
     estado: string
 
     @Column({nullable: true, type: "datetime"})

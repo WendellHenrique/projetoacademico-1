@@ -2,6 +2,8 @@ import { Controller, Put, Post, Body, Get, Res } from '@nestjs/common';
 import { CursoPost, DisciplinaPost, AlunoPost, ProfessorPost } from './administrador.interface';
 import { Response } from 'express';
 import { AdministradorService } from './administrador.service';
+import { CursoEntity } from '../entitys/curso.entity';
+import { TurmaEntity } from '../entitys/turma.entity';
 
 @Controller('administrador')
 export class AdministradorController {
@@ -16,11 +18,7 @@ export class AdministradorController {
 
     @Get('listaProfessores')
     enviarListaProfessores() {
-        console.log('listaprof')
-        this.serviceAdministrador.salvarAdministrador({bairro:'asd',
-    cep:'asd', cidade: 'asd', complemento: '', dataVinculo: null,
-    estado: '', nome: 'leo', numero: '4564', rua: '1486', senha: 'asd',
-    id: null})
+
     }
 
     @Get('listaCursos')
@@ -35,7 +33,17 @@ export class AdministradorController {
 
     @Post('cadastrarCurso')
     receberCurso(@Body() curso: CursoPost){
-        console.log(curso)
+
+        const cursoSalvar = new CursoEntity()
+        cursoSalvar.nome = curso.nome
+
+        const turmaSalvar = new TurmaEntity()
+        turmaSalvar.ano = curso.turmaAno
+        turmaSalvar.semestre = curso.turmaSemestre
+        turmaSalvar.curso = cursoSalvar
+
+        this.serviceAdministrador.salvarCurso(cursoSalvar)
+        this.serviceAdministrador.salvarTurma(turmaSalvar)
     }
 
     @Post('cadastrarDisciplina')

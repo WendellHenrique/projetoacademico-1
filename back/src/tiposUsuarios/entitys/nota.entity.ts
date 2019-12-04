@@ -8,14 +8,11 @@ export class NotaEntity {
     @PrimaryGeneratedColumn({type: "integer"})
     id: number    
 
-    @Column({type: "varchar", length: 30})
-    nome: string
+    @Column({type: "integer"})
+    valor: string
 
-    @Column({nullable: true, type: "varchar", length: 30})
-    area: string
-
-    @Column({nullable: true, type: "varchar", length: 20})
-    periodo: string
+    @Column({nullable: true, type: "varchar", length: 10})
+    tipo: string
 
     @ManyToOne(type => NotaEntity, nota => nota.id)
     nota: NotaEntity
