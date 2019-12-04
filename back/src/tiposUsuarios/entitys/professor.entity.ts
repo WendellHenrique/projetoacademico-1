@@ -1,18 +1,20 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
-import { TurmaEntity } from "./turma.entity";
+import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 
 
 @Entity()
-export class AlunoEntity {
+export class ProfessorEntity {
 
     @PrimaryGeneratedColumn({type: "integer"})
     id: number
 
-    @Column({nullable: false, type: "varchar", length: 15})
+    @Column({type: "varchar", length: 15})
     senha: string
 
-    @Column({nullable: false, type: "varchar", length: 30})
+    @Column({type: "varchar", length: 30})
     nome: string
+
+    @Column({type: "varchar", length: 50})
+    titulacao: string
 
     @Column({nullable: true, type: "integer"})
     numero: string
@@ -37,7 +39,4 @@ export class AlunoEntity {
 
     @Column({nullable: true, type: "datetime"})
     dataVinculo: Date
-
-    @ManyToOne(Type => TurmaEntity, turma => turma.id)
-    turma: TurmaEntity
 }

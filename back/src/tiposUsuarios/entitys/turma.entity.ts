@@ -1,18 +1,19 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
+import { CursoEntity } from "./curso.entity";
 
 
 @Entity()
 export class TurmaEntity {
 
     @PrimaryGeneratedColumn({type: "integer"})
-    idTurma: number
+    id: number
 
-    @Column({nullable: false, type: "varchar", length: 15})
-    ano: string
+    @Column({type: "integer"})
+    ano: number
 
-    @Column({nullable: false, type: "varchar", length: 30})
-    semestre: string
+    @Column({type: "integer"})
+    semestre: number
 
-    @Column({type: "integer", nullable: false, })
-    idCurso: string
+    @ManyToOne(type => CursoEntity, curso => curso.id)
+    curso: CursoEntity
 }

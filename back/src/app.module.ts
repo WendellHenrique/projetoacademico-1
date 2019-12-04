@@ -8,6 +8,11 @@ import { AdministradorEntity } from './tiposUsuarios/entitys/administrador.entit
 import { AdministradorModule } from './tiposUsuarios/administrador/administrador.module';
 import { AlunoModule } from './tiposUsuarios/Aluno/aluno.module';
 import { AlunoEntity } from './tiposUsuarios/entitys/aluno.entity';
+import { CursoEntity } from './tiposUsuarios/entitys/curso.entity';
+import { TurmaEntity } from './tiposUsuarios/entitys/turma.entity';
+import { NotaEntity } from './tiposUsuarios/entitys/nota.entity';
+import { ProfessorEntity } from './tiposUsuarios/entitys/professor.entity';
+import { DisciplinaEntity } from './tiposUsuarios/entitys/disciplina.entity';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -16,9 +21,14 @@ import { AlunoEntity } from './tiposUsuarios/entitys/aluno.entity';
               port: 3306,
               username: 'root',
               password: '',
-              database: 'mydb',
+              database: 'projetofujioka',
               entities: [AdministradorEntity,
-                          AlunoEntity],
+                          AlunoEntity,
+                          CursoEntity,
+                          TurmaEntity,
+                          NotaEntity,
+                          ProfessorEntity,
+                          DisciplinaEntity],
               synchronize: true,
               }),
               LoginModule,

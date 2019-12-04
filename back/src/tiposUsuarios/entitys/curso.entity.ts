@@ -6,9 +6,9 @@ import { TurmaEntity } from "./turma.entity";
 @Entity()
 export class CursoEntity {
     @PrimaryGeneratedColumn({type: "integer"})
-    idCurso: number    
+    id: number    
 
-    @Column({nullable: false, type: "varchar", length: 30})
+    @Column({type: "varchar", length: 30})
     nome: string
 
 }
