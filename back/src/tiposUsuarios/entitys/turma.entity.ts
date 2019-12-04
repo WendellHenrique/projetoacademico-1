@@ -5,13 +5,13 @@ import { CursoEntity } from "./curso.entity";
 @Entity()
 export class TurmaEntity {
 
-    @PrimaryGeneratedColumn({type: "integer"})
+    @PrimaryGeneratedColumn({type: "int"})
     id: number
 
-    @Column({type: "integer"})
+    @Column({type: "smallint"})
     ano: number
 
-    @Column({type: "integer"})
+    @Column({type: "smallint"})
     semestre: number
 
     @ManyToOne(type => CursoEntity, curso => curso.id)

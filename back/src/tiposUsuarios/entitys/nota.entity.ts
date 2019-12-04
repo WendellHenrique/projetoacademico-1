@@ -5,10 +5,10 @@ import { TurmaEntity } from "./turma.entity";
 
 @Entity()
 export class NotaEntity {
-    @PrimaryGeneratedColumn({type: "integer"})
+    @PrimaryGeneratedColumn({type: "int"})
     id: number    
 
-    @Column({type: "integer"})
+    @Column({type: "float"})
     valor: string
 
     @Column({nullable: true, type: "varchar", length: 10})

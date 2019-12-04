@@ -6,7 +6,7 @@ import { ProfessorEntity } from "./professor.entity";
 
 @Entity()
 export class DisciplinaEntity {
-    @PrimaryGeneratedColumn({type: "integer"})
+    @PrimaryGeneratedColumn({type: "int"})
     id: number    
 
     @Column({type: "varchar", length: 30})
