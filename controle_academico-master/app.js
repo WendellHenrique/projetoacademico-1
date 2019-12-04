@@ -1,8 +1,11 @@
+const PORTA = 3000
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var cors = require('cors');
 
 var indexRouter = require('./routes/index');
 var alunosRouter = require('./routes/alunos');
@@ -12,6 +15,7 @@ var notasRouter = require('./routes/notas');
 var turmasRouter = require('./routes/turmas');
 var cursosRouter = require('./routes/cursos');
 var disciplinasRouter = require('./routes/disciplinas');
+var login = require('./routes/login')
 
 var app = express();
 
@@ -24,6 +28,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors({origin: 'http://localhost:4200'}));
 
 app.use('/', indexRouter);
 app.use('/alunos', alunosRouter);
@@ -33,6 +38,7 @@ app.use('/notas', notasRouter);
 app.use('/turmas', turmasRouter);
 app.use('/cursos', cursosRouter);
 app.use('/disciplinas', disciplinasRouter);
+app.use('/', login)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -58,8 +64,8 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.listen(3300, function(){
-  console.info('Server running in the port 3300');
+app.listen(PORTA, function(){
+  console.info(`Server running in the port ${PORTA}`);
 });
 
 module.exports = app;

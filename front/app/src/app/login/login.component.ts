@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
 
   entrar(): void {
     this.loginServise.loginPost(this.usuariodados).subscribe()
-    setTimeout(() =>  this.verificarLogin(), 500)
+    setTimeout(() =>  this.verificarLogin(), 1000)
   }
 
   verificarLogin(): void {
