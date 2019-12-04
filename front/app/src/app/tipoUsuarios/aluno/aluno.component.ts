@@ -20,7 +20,7 @@ export class AlunoComponent implements OnInit {
 
   ngOnInit() {
     this.tramissaoUsuario.receberUsuario().subscribe(dado => this.usuario = dado)
-    this.requisicao.postUsuario(this.usuario)
+    this.requisicao.postUsuario(this.usuario.matricula).subscribe()
     setTimeout(() =>
               this.requisicao.getDisciplinasComReferentesNotas()
               .subscribe( dados => this.listaDisciplinas = dados), 500)

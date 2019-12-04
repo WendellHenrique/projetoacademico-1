@@ -10,7 +10,6 @@ export class LoginController {
 
     @Post()
     pegarUsuario(@Body() usuario: Login) : any{
-        console.log(usuario)
 
         let requicicaoLogin = usuario
 

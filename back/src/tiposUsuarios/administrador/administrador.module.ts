@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { AdministradorService } from './administrador.service';
 import { AdministradorController } from './administrador.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AdministradorEntity } from './administrador.entity';
+import { AdministradorEntity } from '../entitys/administrador.entity';
 
 @Module({
     imports: [TypeOrmModule.forFeature([AdministradorEntity])],

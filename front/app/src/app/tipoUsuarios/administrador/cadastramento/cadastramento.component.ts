@@ -44,18 +44,18 @@ export class CadastramentoComponent implements OnInit {
   }
 
   checkGroupDisciplinasDeProfessor(dado) {
-    if (!this.professor.disciplinas.includes(dado)) {
-      this.professor.disciplinas.push(dado)
-    } else {
+    if (this.professor.disciplinas.includes(dado)) {
       this.professor.disciplinas = _.remove(this.professor.disciplinas, dado)
+    } else {
+      this.professor.disciplinas.push(dado)
     }
   }
 
   checkGroupDisciplinasDeAluno(dado) {
-    if (!this.aluno.disciplinas.includes(dado)) {
-      this.aluno.disciplinas.push(dado)
-    } else {
+    if (this.aluno.disciplinas.includes(dado)) {
       this.aluno.disciplinas = _.remove(this.aluno.disciplinas, dado)
+    } else {
+      this.aluno.disciplinas.push(dado)
     }
   }
 

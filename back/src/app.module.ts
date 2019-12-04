@@ -4,8 +4,10 @@ import { AppService } from './app.service';
 import { LoginModule } from './login/login.module';
 import { Connection } from 'typeorm';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AdministradorEntity } from './tiposUsuarios/administrador/administrador.entity';
+import { AdministradorEntity } from './tiposUsuarios/entitys/administrador.entity';
 import { AdministradorModule } from './tiposUsuarios/administrador/administrador.module';
+import { AlunoModule } from './tiposUsuarios/Aluno/aluno.module';
+import { AlunoEntity } from './tiposUsuarios/entitys/aluno.entity';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -15,11 +17,13 @@ import { AdministradorModule } from './tiposUsuarios/administrador/administrador
               username: 'root',
               password: '',
               database: 'mydb',
-              entities: [AdministradorEntity],
+              entities: [AdministradorEntity,
+                          AlunoEntity],
               synchronize: true,
               }),
               LoginModule,
-              AdministradorModule
+              AdministradorModule,
+              AlunoModule
               ],
   controllers: [AppController],
   providers: [AppService],

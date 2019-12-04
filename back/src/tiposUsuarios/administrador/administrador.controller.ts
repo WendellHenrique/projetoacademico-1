@@ -7,7 +7,8 @@ export class AdministradorController {
 
     @Get('listaAlunos')
     enviarListaAlunos(@Res() res: Response){
-        res.status(200).send([{matricula: 4564, alunoNome: 'leo', periodo: '4 periodo'}])
+        res.status(200).send([{matricula: 4564, alunoNome: 'leo',
+                                periodo: '4 periodo'}])
     }
 
     @Get('listaProfessores')
