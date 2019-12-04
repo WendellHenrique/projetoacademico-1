@@ -34,6 +34,6 @@ export class AdministradorEntity {
     @Column({type: "varchar", length: 2})
     estado: string
 
-    @Column({type: "datetime"})
+    @Column({nullable: true, type: "datetime"})
     dataVinculo: Date
 }

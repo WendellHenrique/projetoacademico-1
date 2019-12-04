@@ -13,6 +13,6 @@ export class TurmaEntity {
     @Column({nullable: false, type: "varchar", length: 30})
     semestre: string
 
-    @Column({type: "integer", nullable: false})
+    @Column({type: "integer", nullable: false, })
     idCurso: string
 }
