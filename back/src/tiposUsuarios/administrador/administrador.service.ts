@@ -26,6 +26,7 @@ export class AdministradorService {
 
     salvarProfessor(professor: ProfessorEntity) {
         return this.professorRepository.save(professor)
+        
     }
 
     salvarAluno(aluno: AlunoEntity) {
