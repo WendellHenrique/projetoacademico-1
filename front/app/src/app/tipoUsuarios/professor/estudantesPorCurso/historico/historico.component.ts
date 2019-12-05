@@ -14,7 +14,7 @@ export class HistoricoProfessorComponent implements OnInit {
   constructor(private requicicao: HistoricoAlunoService, private tramissaoUsuario: LoginService) { }
 
   usuario: Login
-  listaDisciplinas: Array<HistoricoAluno>
+  listaHistorico: Array<HistoricoAluno>
   listaMedias: Array<number>
 
   ngOnInit() {
@@ -23,14 +23,14 @@ export class HistoricoProfessorComponent implements OnInit {
     this.requicicao.postEnviarMatricula(this.usuario.matricula)
     setTimeout(() => {
       this.requicicao.getHistorico()
-        .subscribe(dado => this.listaDisciplinas = dado)
+        .subscribe(dado => this.listaHistorico = dado)
     }, 500)
     this.mediaDasNotas()
   }
 
   mediaDasNotas() {
     let mediaTemporaria = 0
-    this.listaDisciplinas.forEach(estudantes => {
+    this.listaHistorico.forEach(estudantes => {
       estudantes.notas.forEach((nota) => {
         mediaTemporaria += nota
       })

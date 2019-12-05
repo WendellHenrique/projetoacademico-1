@@ -19,6 +19,6 @@ export interface PostNotaDoAluno {
 export interface GetHistoricoDoAluno {
     disciplina: string
     periodo: string
-    situacao: string
-    nota: number
+    //situacao: string
+    //vai faltar a situacao 
 }

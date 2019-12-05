@@ -14,7 +14,7 @@ export class NotasComponent implements OnInit {
   constructor(private inserirNotas: LoginService, private insercao: InserirNotasService) { }
 
   usuario: Login
-  InsercaoNotas: InserirNotas = {
+  ListaInserirNotas: InserirNotas = {
     nota: 0,
     tipoNota: ''
   }

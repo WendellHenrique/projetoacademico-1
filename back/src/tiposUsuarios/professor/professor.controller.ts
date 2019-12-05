@@ -1,6 +1,7 @@
 import { Controller, Put, Post, Body, Get, Res } from '@nestjs/common';
 import { Response } from 'express';
-import { GetDisciplinasProf } from './professor.interface'
+import { GetDisciplinasProf, PostNotaDoAluno } from './professor.interface'
+import { NotaEntity } from '../entitys/nota.entity';
 
 @Controller('professor')
 
@@ -24,7 +25,23 @@ export class ProfessorController {
         }])
     }
 
-    @Post('')
+    @Post('ListaInserirNotas')
+    recebeNotasAlunos(@Body() notas: PostNotaDoAluno) {
 
+        const salvarNota = new NotaEntity()
+        salvarNota.valor = notas.nota
+
+        const salvarTipo = new NotaEntity()
+        salvarTipo.tipo = notas.tipoNota
+    }
+
+
+    @Get('listaHistorico')
+    enviaListaHistorico(@Res() res: Response) {
+        res.status(200).send([{
+            disciplina: 'Programacao',
+            periodo: '4 periodo',
+        }])
+    }
 
 }
