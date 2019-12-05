@@ -13,31 +13,33 @@ import { TurmaEntity } from './tiposUsuarios/entitys/turma.entity';
 import { NotaEntity } from './tiposUsuarios/entitys/nota.entity';
 import { ProfessorEntity } from './tiposUsuarios/entitys/professor.entity';
 import { DisciplinaEntity } from './tiposUsuarios/entitys/disciplina.entity';
+import { ProfessorModule } from './tiposUsuarios/professor/professor.module';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
-              type: 'mysql',
-              host: 'localhost',
-              port: 3306,
-              username: 'root',
-              password: '',
-              database: 'projetofujioka',
-              entities: [AdministradorEntity,
-                          AlunoEntity,
-                          CursoEntity,
-                          TurmaEntity,
-                          NotaEntity,
-                          ProfessorEntity,
-                          DisciplinaEntity],
-              synchronize: true,
-              }),
-              LoginModule,
-              AdministradorModule,
-              AlunoModule
-              ],
+    type: 'mysql',
+    host: 'localhost',
+    port: 3306,
+    username: 'root',
+    password: '',
+    database: 'projetofujioka',
+    entities: [AdministradorEntity,
+      AlunoEntity,
+      CursoEntity,
+      TurmaEntity,
+      NotaEntity,
+      ProfessorEntity,
+      DisciplinaEntity],
+    synchronize: true,
+  }),
+    LoginModule,
+    AdministradorModule,
+    AlunoModule,
+    ProfessorModule
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {
-  constructor(private readonly conectarBanco: Connection){}
+  constructor(private readonly conectarBanco: Connection) { }
 }

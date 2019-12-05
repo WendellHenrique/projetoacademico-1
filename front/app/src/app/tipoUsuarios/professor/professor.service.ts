@@ -9,9 +9,9 @@ export class ProfessorService {
 
     constructor(private http: HttpClient) { }
 
-    postUsuario(matricula) {
+    /*postUsuario(matricula) {
         this.http.post<number>('localhost:3000/professor', matricula)
-    }
+    } */
 
     getDisciplinasLecionadas(): Observable<any> {
         return this.http.get<any>('localhost:3000/professor')

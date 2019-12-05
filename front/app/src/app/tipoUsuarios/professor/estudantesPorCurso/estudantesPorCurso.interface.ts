@@ -2,5 +2,5 @@ export interface EstudantesPorCurso {
     matricula: number
     nomeAluno: string
     notas: Array<number>
-    situacao: string
+    //falta colocar a situacao
 }
