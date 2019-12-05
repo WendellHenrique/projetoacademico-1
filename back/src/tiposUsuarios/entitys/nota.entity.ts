@@ -6,11 +6,12 @@ import { DisciplinaEntity } from "./disciplina.entity";
 
 @Entity()
 export class NotaEntity {
-    @PrimaryGeneratedColumn({ type: "int" })
-    id: number
 
-    @Column({ type: "int" })
-    valor: number
+    @PrimaryGeneratedColumn({type: "int"})
+    id: number    
+
+    @Column({type: "float"})
+    valor: string
 
     @Column({ nullable: true, type: "varchar", length: 10 })
     tipo: string

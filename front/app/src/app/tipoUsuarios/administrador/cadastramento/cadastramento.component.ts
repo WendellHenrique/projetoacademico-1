@@ -17,9 +17,9 @@ export class CadastramentoComponent implements OnInit {
   usuario: Login
 
   aluno: AlunoPost = {bairro: '', cep: '', cidade: '', complemento: '', dataVinculo: '',
-                    disciplinas: [], estado: '', nome: '', rua: '', senha: '' }
+                    disciplinas: [], estado: '', nome: '', rua: '', senha: '', numero:  null}
   professor: ProfessorPost = {nome: '', bairro: '', cep: '', cidade: '', complemento: '',
-                              dataVinculo: '', estado: '', rua: '', senha: '', titulacao: '', disciplinas: []}
+                              dataVinculo: '', estado: '', rua: '', senha: '', titulacao: '', disciplinas: [], numero: null}
   @Input() curso: CursoPost = {nome: '', turmaAno: 2019, turmaSemestre: 1}
   disciplina: DisciplinaPost = {nome: '', areaDeAtuacao: '', periodo: '', cursos: []}
 

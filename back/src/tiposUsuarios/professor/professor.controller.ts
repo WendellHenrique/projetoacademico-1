@@ -25,6 +25,7 @@ export class ProfessorController {
         }])
     }
 
+
     @Post('ListaInserirNotas')
     recebeNotasAlunos(@Body() notas: PostNotaDoAluno) {
 
@@ -43,5 +44,6 @@ export class ProfessorController {
             periodo: '4 periodo',
         }])
     }
+
 
 }

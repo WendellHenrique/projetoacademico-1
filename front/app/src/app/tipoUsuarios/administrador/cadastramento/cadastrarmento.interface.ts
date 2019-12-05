@@ -3,7 +3,8 @@ export interface AlunoPost {
     senha: string
     rua: string
     bairro: string
-    complemento: string
+    complemento: string,
+    numero: number
     cidade: string
     estado: string
     dataVinculo: string
@@ -14,7 +15,8 @@ export interface AlunoPost {
 export interface ProfessorPost {
     nome: string
     senha: string
-    rua: string
+    rua: string,
+    numero: number
     bairro: string
     complemento: string
     cidade: string

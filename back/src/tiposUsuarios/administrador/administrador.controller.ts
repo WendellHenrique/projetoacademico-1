@@ -4,6 +4,9 @@ import { Response } from 'express';
 import { AdministradorService } from './administrador.service';
 import { CursoEntity } from '../entitys/curso.entity';
 import { TurmaEntity } from '../entitys/turma.entity';
+import { DisciplinaEntity } from '../entitys/disciplina.entity';
+import { AlunoEntity } from '../entitys/aluno.entity';
+import { ProfessorEntity } from '../entitys/professor.entity';
 
 @Controller('administrador')
 export class AdministradorController {
@@ -48,17 +51,53 @@ export class AdministradorController {
 
     @Post('cadastrarDisciplina')
     receberDisciplina(@Body() disciplina: DisciplinaPost){
-        console.log(disciplina)
+
+        const disciplinaSalvar = new DisciplinaEntity()
+        disciplinaSalvar.nome = disciplina.nome
+        disciplinaSalvar.area = disciplina.areaDeAtuacao
+        disciplinaSalvar.periodo = disciplina.periodo
+        disciplinaSalvar.professor = null
+        disciplinaSalvar.turma = null
+
+        this.serviceAdministrador.salvarDisciplina(disciplinaSalvar)
     }
 
     @Post('cadastrarAluno')
     receberAluno(@Body() aluno: AlunoPost){
-        console.log(aluno)
+        
+        const alunoSalvar = new AlunoEntity()
+        alunoSalvar.nome = aluno.nome
+        alunoSalvar.bairro = aluno.bairro
+        alunoSalvar.cep = aluno.cep
+        alunoSalvar.cidade = aluno.cidade
+        alunoSalvar.complemento = aluno.complemento
+        alunoSalvar.dataVinculo = aluno.dataVinculo
+        alunoSalvar.estado = aluno.estado
+        alunoSalvar.numero = aluno.numero
+        alunoSalvar.rua = aluno.rua
+        alunoSalvar.senha = aluno.senha
+        alunoSalvar.turma = null
+
+        this.serviceAdministrador.salvarAluno(alunoSalvar)
     }
 
     @Post('cadastrarProfessor')
     recebeProfessor(@Body() professor: ProfessorPost){
-        console.log(professor)
+        
+        const professorSalvar = new ProfessorEntity()
+        professorSalvar.nome = professor.nome
+        professorSalvar.bairro = professor.bairro
+        professorSalvar.cep = professor.cep
+        professorSalvar.cidade = professor.cidade
+        professorSalvar.complemento = professor.complemento
+        professorSalvar.dataVinculo = professor.dataVinculo
+        professorSalvar.estado = professor.estado
+        professorSalvar.numero = professor.numero
+        professorSalvar.rua = professor.rua
+        professorSalvar.senha = professor.senha
+        professorSalvar.titulacao = professor.titulacao
+
+        this.serviceAdministrador.salvarProfessor(professorSalvar)
     }
 
     @Get('cadastramentoCurso')
