@@ -17,7 +17,7 @@ export class ProfessorEntity {
     nome: string
 
     @Column({nullable: true, type: "bigint"})
-    numero: string
+    numero: number
 
     @Column({nullable: true, type: "varchar", length: 20})
     complemento: string

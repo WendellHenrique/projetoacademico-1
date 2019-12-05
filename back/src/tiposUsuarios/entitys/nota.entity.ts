@@ -1,5 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne } from "typeorm";
 import { TurmaEntity } from "./turma.entity";
+import { DisciplinaEntity } from "./disciplina.entity";
 
 
 
@@ -14,7 +15,7 @@ export class NotaEntity {
     @Column({nullable: true, type: "varchar", length: 10})
     tipo: string
 
-    @ManyToOne(type => NotaEntity, nota => nota.id)
-    nota: NotaEntity
+    @ManyToOne(type => DisciplinaEntity, disciplina => disciplina.id)
+    disciplina: DisciplinaEntity
 
 }

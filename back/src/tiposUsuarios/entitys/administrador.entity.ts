@@ -13,8 +13,8 @@ export class AdministradorEntity {
     @Column({nullable: false, type: "varchar", length: 50})
     nome: string
 
-    @Column({nullable: true, type: "bigint"})
-    numero: string
+    @Column({nullable: true, type: "bigint", })
+    numero: number
 
     @Column({nullable: true, type: "varchar", length: 20})
     complemento: string

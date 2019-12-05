@@ -24,7 +24,5 @@ export class ProfessorController {
         }])
     }
 
-    @Post('')
-
 
 }
