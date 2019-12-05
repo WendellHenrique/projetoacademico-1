@@ -20,12 +20,12 @@ export class EstudantesPorCursoComponent implements OnInit {
   ngOnInit() {
 
     this.tramissaoUsuario.receberUsuario().subscribe(dado => this.usuario = dado)
-    this.requisicao.postUsuario(this.usuario)
+    //this.requisicao.postUsuario(this.usuario)
     setTimeout(() =>
       this.requisicao.getEstudantesPorCurso()
-                      .subscribe(dados => this.listaCamposEstudantes = dados), 500)
+        .subscribe(dados => this.listaCamposEstudantes = dados), 500)
     this.mediaDasNotas()
-}
+  }
 
   mediaDasNotas() {
     let mediaTemporaria = 0

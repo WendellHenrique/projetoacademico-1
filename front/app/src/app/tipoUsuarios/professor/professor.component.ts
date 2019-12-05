@@ -19,7 +19,7 @@ export class ProfessorComponent implements OnInit {
   ngOnInit() {
 
     this.tramissaoUsuario.receberUsuario().subscribe(dado => this.usuario = dado)
-    this.requisicao.postUsuario(this.usuario)
+    //this.requisicao.postUsuario(this.usuario)
     setTimeout(() =>
       this.requisicao.getDisciplinasLecionadas()
         .subscribe(dados => this.ListaCamposProfessor = dados), 500)

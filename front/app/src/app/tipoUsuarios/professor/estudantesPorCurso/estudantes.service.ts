@@ -9,9 +9,9 @@ export class EstudantesPorCursoService {
 
     constructor(private http: HttpClient) { }
 
-    postUsuario(matricula) {
-        this.http.post<number>('localhost:3000/professor/estudantesPorCurso', matricula)
-    }
+    // postUsuario(matricula) {
+    //     this.http.post<number>('localhost:3000/professor/estudantesPorCurso', matricula)
+    // }
 
     getEstudantesPorCurso(): Observable<any> {
         return this.http.get<any>('localhost:3000/professor/estudantesPorCurso')
